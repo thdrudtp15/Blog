@@ -1,9 +1,12 @@
 import Link from 'next/link';
 import styles from './PostItem.module.scss';
+import ContentWrap from './ContentWrap';
+import TagItem from './TagItem';
+import React from 'react';
 
 const PostItem = () => {
     return (
-        <article className={styles.item}>
+        <ContentWrap>
             <header className={styles.item_header}>
                 <div className={styles.image}></div>
                 <div className={styles.info}>
@@ -12,20 +15,20 @@ const PostItem = () => {
                 </div>
             </header>
             <p className={styles.description}>CDN 조합으로 빠르게</p>
-            <div className={styles.tags}>
+            <ul className={styles.tags}>
                 {['react', 'next'].map((item, idx) => (
-                    <span key={idx} className={styles.tag_item}>
-                        #{item}
-                    </span>
+                    <React.Fragment key={idx}>
+                        <TagItem>#{item}</TagItem>
+                    </React.Fragment>
                 ))}
-            </div>
+            </ul>
             <div className={styles.read}>
                 <p className={styles.read_time}>9 min read</p>
-                <Link href="/" aria-label="읽기" className={styles.read_btn}>
-                    Read
+                <Link href="/3" aria-label="읽기" className={styles.read_btn}>
+                    읽기
                 </Link>
             </div>
-        </article>
+        </ContentWrap>
     );
 };
 
