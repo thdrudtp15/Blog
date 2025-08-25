@@ -30,9 +30,9 @@ export default function RootLayout({
             <body className={`${geistSans.variable} ${geistMono.variable}`}>
                 <ThemeProviders>
                     <Header />
-                    {children}
+                    <div className="content">{children}</div>
+                    <Footer />
                 </ThemeProviders>
-                <Footer />
             </body>
         </html>
     );

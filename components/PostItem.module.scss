@@ -1,0 +1,76 @@
+@use '../app/mixins' as mixins;
+
+.item {
+    background: var(--card);
+    color: var(--card-foreground);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.25rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.item_header {
+    @include mixins.flex(center, flex-start, 0.5rem);
+    margin-bottom: 1rem;
+
+    .image {
+        width: 2.5rem;
+        height: 2.5rem;
+        background-color: var(--accent);
+        border-radius: 0.5rem;
+    }
+    .title {
+        font-size: 1.125rem;
+    }
+    .create_at {
+        font-size: 0.875rem;
+        color: var(--muted);
+    }
+}
+
+.description {
+    color: var(--muted);
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.tags {
+    margin-bottom: 1rem;
+    @include mixins.flex(center, flex-start, 0.5rem);
+    .tag_item {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 6px 10px;
+        font-size: 12px;
+        color: var(--muted);
+
+        &:hover {
+            background-color: var(--accent);
+            color: white;
+        }
+    }
+}
+
+.read {
+    @include mixins.flex(center, space-between, 0rem);
+
+    .read_time {
+        color: var(--muted);
+        font-size: 0.875rem;
+    }
+    .read_btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        height: 40px;
+        padding: 0 16px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: var(--accent);
+        color: white;
+    }
+}

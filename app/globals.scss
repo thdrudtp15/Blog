@@ -1,54 +1,54 @@
 :root {
-    --background: #0b0c10;
-    --foreground: #e5e7eb;
-    --muted: #9ca3af;
-    --card: #0f1116;
-    --card-foreground: #e5e7eb;
-    --border: #20222a;
-    --accent: #7c3aed;
-    --accent-foreground: #f3f4f6;
-    --ring: #8b5cf6;
-    --content-width: 1100px;
+    --background: #ffffff;
+    --foreground: #171717;
+    --muted: #4b5563;
+    --card: #ffffff;
+    --card-foreground: #111827;
+    --border: #e5e7eb;
+    --accent: #6d28d9;
+    --accent-foreground: #ffffff;
+    --ring: #7c3aed;
 }
 
-// @media (prefers-color-scheme: light) {
-//     :root {
-//         --background: #ffffff;
-//         --foreground: #171717;
-//         --muted: #4b5563;
-//         --card: #ffffff;
-//         --card-foreground: #111827;
-//         --border: #e5e7eb;
-//         --accent: #6d28d9;
-//         --accent-foreground: #ffffff;
-//         --ring: #7c3aed;
-//     }
-// }
+@media (prefers-color-scheme: light) {
+    :root {
+        --background: #ffffff;
+        --foreground: #171717;
+        --muted: #4b5563;
+        --card: #ffffff;
+        --card-foreground: #111827;
+        --border: #e5e7eb;
+        --accent: #6d28d9;
+        --accent-foreground: #ffffff;
+        --ring: #7c3aed;
+    }
+}
 
-// @media (prefers-color-scheme: dark) {
-//     :root {
-//         --background: #0b0c10; /* 아주 어두운 네이비 톤 */
-//         --foreground: #e5e7eb; /* 밝은 텍스트 */
-//         --muted: #9ca3af; /* 흐린 회색 */
-//         --card: #1a1c23; /* 약간 밝은 카드 배경 */
-//         --card-foreground: #f3f4f6; /* 카드 안의 글씨 */
-//         --border: #374151; /* 어두운 경계선 */
-//         --accent: #6d28d9; /* 연보라 계열 포인트 */
-//         --accent-foreground: #ffffff; /* 포인트 버튼 텍스트 */
-//         --ring: #7c3aed; /* 라벤더 톤 하이라이트 */
-//     }
-// }
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #0b0c10; /* 아주 어두운 네이비 톤 */
+        --foreground: #e5e7eb; /* 본문 글씨, 밝은 대비 */
+        --muted: #9ca3af; /* 서브 텍스트 */
+        --card: #1b1e26; /* 카드 배경, 배경과 구분되게 약간 밝게 */
+        --card-foreground: #f3f4f6; /* 카드 글씨, 충분한 대비 */
+        --border: #4b5563; /* 카드/섹션 경계, 약간 더 밝게 */
+        --accent: #8b5cf6; /* 버튼/링크 포인트, 좀 더 밝게 */
+        --accent-foreground: #ffffff; /* 포인트 텍스트 */
+        --ring: #a78bfa; /* 하이라이트/포커스, 밝게 강조 */
+    }
+}
 .dark {
     --background: #0b0c10; /* 아주 어두운 네이비 톤 */
-    --foreground: #e5e7eb; /* 밝은 텍스트 */
-    --muted: #9ca3af; /* 흐린 회색 */
-    --card: #1a1c23; /* 약간 밝은 카드 배경 */
-    --card-foreground: #f3f4f6; /* 카드 안의 글씨 */
-    --border: #374151; /* 어두운 경계선 */
-    --accent: #6d28d9; /* 연보라 계열 포인트 */
-    --accent-foreground: #ffffff; /* 포인트 버튼 텍스트 */
-    --ring: #7c3aed; /* 라벤더 톤 하이라이트 */
+    --foreground: #e5e7eb; /* 본문 글씨, 밝은 대비 */
+    --muted: #9ca3af; /* 서브 텍스트 */
+    --card: #1b1e26; /* 카드 배경, 배경과 구분되게 약간 밝게 */
+    --card-foreground: #f3f4f6; /* 카드 글씨, 충분한 대비 */
+    --border: #4b5563; /* 카드/섹션 경계, 약간 더 밝게 */
+    --accent: #8b5cf6; /* 버튼/링크 포인트, 좀 더 밝게 */
+    --accent-foreground: #ffffff; /* 포인트 텍스트 */
+    --ring: #a78bfa; /* 하이라이트/포커스, 밝게 강조 */
 }
+
 .light {
     --background: #ffffff;
     --foreground: #171717;
@@ -84,6 +84,12 @@ body {
 a {
     color: inherit;
     text-decoration: none;
+}
+
+.content {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 1rem;
 }
 
 [data-container] {

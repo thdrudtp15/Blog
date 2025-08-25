@@ -1,0 +1,5 @@
+@use '../mixins' as mixins;
+
+.detail {
+    @include mixins.content-width();
+}
