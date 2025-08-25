@@ -1,0 +1,10 @@
+@mixin flex($ai, $jc, $g) {
+    display: flex;
+    align-items: $ai;
+    justify-content: $jc;
+    gap: $g;
+}
+
+@mixin content-width() {
+    width: min(var(--content-width), 100%);
+}

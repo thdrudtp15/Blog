@@ -1,0 +1,16 @@
+@use '../app/mixins' as mixins;
+
+.footer {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 1rem;
+    color: var(--muted);
+}
+
+.content {
+    margin: 0 auto;
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    justify-content: space-between;
+    @include mixins.content-width();
+}

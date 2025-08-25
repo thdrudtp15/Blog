@@ -1,0 +1,28 @@
+@use '../app/mixins' as mixins;
+
+.header {
+    border-bottom: 1px solid var(--border);
+    background: var(--background);
+}
+
+.brand {
+    @include mixins.flex(center, flex-start, 0.5rem);
+}
+
+.logo {
+    display: block;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 8px;
+    background-color: var(--accent);
+}
+.name {
+    line-height: 100%;
+}
+
+.content {
+    padding: 1rem 1rem;
+    margin: 0 auto;
+    @include mixins.content-width();
+    @include mixins.flex(center, space-between, 0rem);
+}

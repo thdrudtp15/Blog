@@ -1,0 +1,198 @@
+:root {
+    --background: #0b0c10;
+    --foreground: #e5e7eb;
+    --muted: #9ca3af;
+    --card: #0f1116;
+    --card-foreground: #e5e7eb;
+    --border: #20222a;
+    --accent: #7c3aed;
+    --accent-foreground: #f3f4f6;
+    --ring: #8b5cf6;
+    --content-width: 1100px;
+}
+
+// @media (prefers-color-scheme: light) {
+//     :root {
+//         --background: #ffffff;
+//         --foreground: #171717;
+//         --muted: #4b5563;
+//         --card: #ffffff;
+//         --card-foreground: #111827;
+//         --border: #e5e7eb;
+//         --accent: #6d28d9;
+//         --accent-foreground: #ffffff;
+//         --ring: #7c3aed;
+//     }
+// }
+
+// @media (prefers-color-scheme: dark) {
+//     :root {
+//         --background: #0b0c10; /* 아주 어두운 네이비 톤 */
+//         --foreground: #e5e7eb; /* 밝은 텍스트 */
+//         --muted: #9ca3af; /* 흐린 회색 */
+//         --card: #1a1c23; /* 약간 밝은 카드 배경 */
+//         --card-foreground: #f3f4f6; /* 카드 안의 글씨 */
+//         --border: #374151; /* 어두운 경계선 */
+//         --accent: #6d28d9; /* 연보라 계열 포인트 */
+//         --accent-foreground: #ffffff; /* 포인트 버튼 텍스트 */
+//         --ring: #7c3aed; /* 라벤더 톤 하이라이트 */
+//     }
+// }
+.dark {
+    --background: #0b0c10; /* 아주 어두운 네이비 톤 */
+    --foreground: #e5e7eb; /* 밝은 텍스트 */
+    --muted: #9ca3af; /* 흐린 회색 */
+    --card: #1a1c23; /* 약간 밝은 카드 배경 */
+    --card-foreground: #f3f4f6; /* 카드 안의 글씨 */
+    --border: #374151; /* 어두운 경계선 */
+    --accent: #6d28d9; /* 연보라 계열 포인트 */
+    --accent-foreground: #ffffff; /* 포인트 버튼 텍스트 */
+    --ring: #7c3aed; /* 라벤더 톤 하이라이트 */
+}
+.light {
+    --background: #ffffff;
+    --foreground: #171717;
+    --muted: #4b5563;
+    --card: #ffffff;
+    --card-foreground: #111827;
+    --border: #e5e7eb;
+    --accent: #6d28d9;
+    --accent-foreground: #ffffff;
+    --ring: #7c3aed;
+}
+
+html,
+body {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+body {
+    color: var(--foreground);
+    background: var(--background);
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+[data-container] {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100svh;
+}
+
+[data-main] {
+    width: min(1100px, 100%);
+    margin-inline: auto;
+    padding: 24px 20px 64px;
+}
+
+/* Card */
+.card {
+    background: var(--card);
+    color: var(--card-foreground);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 40px;
+    padding: 0 16px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--foreground);
+}
+
+.btn.primary {
+    background: linear-gradient(135deg, var(--accent), var(--ring));
+    color: var(--accent-foreground);
+    border-color: transparent;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+}
+
+@media (max-width: 768px) {
+    [data-main] {
+        padding: 16px 14px 48px;
+    }
+    .grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+/* Prose styles */
+.prose {
+    line-height: 1.85;
+}
+.prose h1,
+.prose h2,
+.prose h3 {
+    line-height: 1.25;
+    margin: 18px 0 8px;
+}
+.prose p {
+    margin: 10px 0;
+}
+.prose a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.prose blockquote {
+    border-left: 3px solid var(--accent);
+    margin: 12px 0;
+    padding: 8px 12px;
+    color: var(--muted);
+    background: color-mix(in oklab, var(--card) 85%, black);
+}
+.prose pre {
+    background: color-mix(in oklab, var(--card) 80%, black);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px;
+    overflow: auto;
+}
+.prose code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+.prose img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    padding: 10px;
+}
