@@ -4,27 +4,31 @@ import ContentWrap from './ContentWrap';
 import TagItem from './TagItem';
 import React from 'react';
 
-const PostItem = () => {
+import type { Post } from '@/types/post';
+
+const PostItem = ({ post }: { post: Post }) => {
     return (
         <ContentWrap>
             <header className={styles.item_header}>
                 <div className={styles.image}></div>
                 <div className={styles.info}>
-                    <h3 className={styles.title}>서버 퍼포먼스 캐싱 가이드</h3>
-                    <time className={styles.create_at}>2024.01.01</time>
+                    <div className={styles.title_wrap}>
+                        <h3 className={styles.title}>{post.title}</h3>
+                    </div>
+                    <time className={styles.create_at}>{post.date}</time>
                 </div>
             </header>
-            <p className={styles.description}>CDN 조합으로 빠르게</p>
+            <p className={styles.description}>{post.description}</p>
             <ul className={styles.tags}>
-                {['react', 'next'].map((item, idx) => (
+                {post.tags.map((tag: string, idx: number) => (
                     <React.Fragment key={idx}>
-                        <TagItem>#{item}</TagItem>
+                        <TagItem>#{tag}</TagItem>
                     </React.Fragment>
                 ))}
             </ul>
             <div className={styles.read}>
-                <p className={styles.read_time}>9 min read</p>
-                <Link href="/3" aria-label="읽기" className={styles.read_btn}>
+                <p className={styles.read_time}>{post.readingMinutes} min read</p>
+                <Link href={`/${post.slug}`} aria-label="읽기" className={styles.read_btn}>
                     읽기
                 </Link>
             </div>

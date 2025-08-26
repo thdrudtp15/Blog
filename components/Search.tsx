@@ -9,17 +9,7 @@ const Search = () => {
         <ContentWrap>
             <div className={styles.input}>
                 <input className={styles.input_item} type="text" placeholder="검색 (제목/설명/태그)" />
-                <select
-                    aria-label="정렬"
-                    style={{
-                        height: 40,
-                        borderRadius: 12,
-                        border: '1px solid var(--border)',
-                        background: 'transparent',
-                        color: 'var(--foreground)',
-                        padding: '0 10px',
-                    }}
-                >
+                <select aria-label="정렬" className={styles.select}>
                     <option value="new">최신순</option>
                     <option value="old">오래된순</option>
                 </select>

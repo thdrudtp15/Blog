@@ -7,6 +7,8 @@
     border-radius: 1rem;
     padding: 1.25rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    min-width: 0px;
 }
 
 .item_header {
@@ -14,21 +16,37 @@
     margin-bottom: 1rem;
 
     .image {
-        width: 2.5rem;
-        height: 2.5rem;
+        // display: inline-block;
+        min-width: 2.5rem;
+        min-height: 2.5rem;
         background-color: var(--accent);
         border-radius: 0.5rem;
     }
-    .title {
-        font-size: 1.125rem;
-    }
-    .create_at {
-        font-size: 0.875rem;
-        color: var(--muted);
+
+    .info {
+        overflow: hidden;
+        .title_wrap {
+            width: 100%;
+            min-width: 0; /* grid 안에서 필수 */
+        }
+        .title {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 1.125rem;
+        }
+        .create_at {
+            font-size: 0.875rem;
+            color: var(--muted);
+        }
     }
 }
 
 .description {
+    min-width: 0px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     color: var(--muted);
     font-size: 0.875rem;
     margin-bottom: 0.5rem;

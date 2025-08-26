@@ -1,15 +1,22 @@
-import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import React from 'react';
+import { notFound } from 'next/navigation';
 
 import Markdown from '../../components/Markdown';
 import { posts } from '@/data/posts';
 import ContentWrap from '@/components/ContentWrap';
-import React from 'react';
 import TagItem from '@/components/TagItem';
 
-export default function PostPage({ params }: { params: { slug: string } }) {
-    const post = posts[0];
-    if (!post) return notFound();
+import type { Post } from '@/types/post';
+
+export async function generateStaticParams() {
+    return posts.map((post) => ({ slug: post.slug }));
+}
+export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
+    const post: Post | undefined = posts.find((post) => post.slug === slug);
+    if (!post) notFound();
+
     return (
         <ContentWrap>
             <div

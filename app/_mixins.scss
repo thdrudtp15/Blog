@@ -6,5 +6,5 @@
 }
 
 @mixin content-width() {
-    width: min(1100px, 100%);
+    width: min(var(--max-width), 100%);
 }
