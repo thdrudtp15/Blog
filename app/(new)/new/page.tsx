@@ -1,10 +1,13 @@
+'use client';
+import CodeMirror from '@/components/CodeMirror';
 import styles from './page.module.scss';
+import Previewer from '@/components/Previewer';
 
 const HomePage = () => {
     return (
         <div className={styles.new}>
-            <div>코드미러</div>
-            <div>뷰어</div>
+            <CodeMirror />
+            <Previewer />
         </div>
     );
 };
