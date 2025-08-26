@@ -1,0 +1,4 @@
+@use '../../mixins' as mixins;
+.new {
+    @include mixins.flex(flex-start, flex-start, 0rem);
+}
