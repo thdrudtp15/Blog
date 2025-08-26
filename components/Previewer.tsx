@@ -20,7 +20,9 @@ const Previewer = ({ content }: { content: string }) => {
 
     return (
         <div className={styles.previewer}>
-            <Markdown mdData={mdData} />
+            <div className={styles.md_wrapper}>
+                <Markdown mdData={mdData} />
+            </div>
         </div>
     );
 };

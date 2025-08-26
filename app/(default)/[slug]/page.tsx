@@ -9,6 +9,7 @@ import Markdown from '@/components/Markdown';
 
 import type { Post } from '@/types/post';
 import { getMd } from '@/utils/getMd';
+import Giscus from '@/components/Giscus';
 
 export async function generateStaticParams() {
     return posts.map((post) => ({ slug: post.slug }));
@@ -53,6 +54,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                     다음 글 →
                 </Link>
             </nav>
+            <Giscus />
         </ContentWrap>
     );
 }

@@ -7,8 +7,6 @@ import { BsFillMoonStarsFill } from 'react-icons/bs';
 const ThemeToggle = () => {
     const { theme, setTheme } = useTheme();
 
-    console.log(theme);
-
     return (
         <button
             aria-label="테마"
