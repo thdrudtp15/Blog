@@ -8,6 +8,7 @@ import TagItem from '@/components/TagItem';
 import Markdown from '@/components/Markdown';
 
 import type { Post } from '@/types/post';
+import { getMd } from '@/utils/getMd';
 
 export async function generateStaticParams() {
     return posts.map((post) => ({ slug: post.slug }));
@@ -16,6 +17,8 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
     const { slug } = await params;
     const post: Post | undefined = posts.find((post) => post.slug === slug);
     if (!post) notFound();
+
+    const mdData = await getMd(post.content);
 
     return (
         <ContentWrap>
@@ -40,7 +43,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                 </div>
             </div>
             <div style={{ padding: 24 }}>
-                <Markdown content={post.content} />
+                <Markdown mdData={mdData} />
             </div>
             <nav style={{ display: 'flex', justifyContent: 'space-between', padding: '0 24px 24px' }}>
                 <Link href="/" className="btn">

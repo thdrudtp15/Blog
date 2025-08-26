@@ -9,6 +9,10 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@codemirror/commands": "^6.8.1",
+    "@codemirror/lang-markdown": "^6.3.4",
+    "@codemirror/state": "^6.5.2",
+    "@codemirror/view": "^6.38.1",
     "next": "15.5.0",
     "next-theme": "^0.1.5",
     "prismjs": "^1.30.0",
