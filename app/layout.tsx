@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import './globals.scss';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import ThemeProviders from '@/providers/ThemeProviders';
+
+import './globals.scss';
+import 'prismjs/themes/prism-tomorrow.css';
 
 const geistSans = Geist({
     variable: '--font-geist-sans',

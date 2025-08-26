@@ -2,10 +2,10 @@ import Link from 'next/link';
 import React from 'react';
 import { notFound } from 'next/navigation';
 
-import Markdown from '../../components/Markdown';
 import { posts } from '@/data/posts';
 import ContentWrap from '@/components/ContentWrap';
 import TagItem from '@/components/TagItem';
+import Markdown from '@/components/Markdown';
 
 import type { Post } from '@/types/post';
 
@@ -41,6 +41,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             </div>
             <div style={{ padding: 24 }}>
                 <Markdown content={post.content} />
+                {/* <div className="prose" dangerouslySetInnerHTML={{ __html: markdown }}></div> */}
             </div>
             <nav style={{ display: 'flex', justifyContent: 'space-between', padding: '0 24px 24px' }}>
                 <Link href="/" className="btn">

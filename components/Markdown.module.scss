@@ -1,0 +1,55 @@
+.markdown {
+    line-height: 1.85;
+
+    h1,
+    h2,
+    h3 {
+        line-height: 1.25;
+        margin: 18px 0 8px;
+    }
+
+    p {
+        margin: 10px 0;
+    }
+
+    a {
+        color: var(--accent);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+
+    blockquote {
+        border-left: 3px solid var(--accent);
+        margin: 12px 0;
+        padding: 8px 12px;
+        color: var(--muted);
+        background: color-mix(in oklab, var(--card) 85%, black);
+    }
+
+    pre {
+        border-radius: 0.875rem;
+        padding: 1rem;
+        overflow: auto;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: var(--card);
+        padding: 10px;
+    }
+
+    hr {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        height: 0.2rem;
+        background-color: var(--border);
+        border: none;
+    }
+
+    ul {
+        margin-left: 1rem;
+    }
+}
