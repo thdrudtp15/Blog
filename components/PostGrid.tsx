@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './PostGrid.module.scss';
 import PostItem from './PostItem';
-import { getPost, posts as postData } from '@/data/posts';
+import { getPost } from '@/data/posts';
 
 type Props = {
     tag: string;

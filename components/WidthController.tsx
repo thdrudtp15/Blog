@@ -1,4 +1,5 @@
 'use client';
+import React from 'react';
 import { RefObject, useEffect, useRef } from 'react';
 import styles from './WidthController.module.scss';
 
@@ -12,7 +13,10 @@ const WidthController = ({ ref }: { ref: RefObject<HTMLDivElement | null> }) => 
     const onMouseMove = (e: MouseEvent) => {
         if (!controlRef.current || !ref.current) return;
         const { clientX } = e;
-        ref.current.style.width = `${clientX}px`;
+
+        if (clientX > 320 && clientX < 620) {
+            ref.current.style.width = `${clientX}px`;
+        }
     };
 
     useEffect(() => {
@@ -28,4 +32,4 @@ const WidthController = ({ ref }: { ref: RefObject<HTMLDivElement | null> }) => 
     return <div className={styles.controller} onMouseDown={() => (controlRef.current = true)}></div>;
 };
 
-export default WidthController;
+export default React.memo(WidthController);

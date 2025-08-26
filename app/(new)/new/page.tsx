@@ -2,8 +2,7 @@
 import CodeMirror from '@/components/CodeMirror';
 import styles from './page.module.scss';
 import Previewer from '@/components/Previewer';
-import { useEffect, useState } from 'react';
-import { getMd } from '@/utils/getMd';
+import { useState } from 'react';
 
 const HomePage = () => {
     const [content, setContent] = useState('');

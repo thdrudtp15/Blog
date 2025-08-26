@@ -1,5 +1,8 @@
-.codemirror {
+.codemirror_wrap {
     width: 50vw;
     height: 100vh;
     position: relative;
+}
+.codemirror {
+    font-size: 1rem;
 }

@@ -62,8 +62,8 @@ const CodeMirror = ({ onChange }: { onChange: (value: string) => void }) => {
     }, []);
 
     return (
-        <div className={styles.codemirror} ref={ref}>
-            <div ref={editorRef} style={{ minHeight: '100vh' }} />
+        <div className={styles.codemirror_wrap} ref={ref}>
+            <div ref={editorRef} className={styles.codemirror} />
             <WidthController ref={ref} />
         </div>
     );

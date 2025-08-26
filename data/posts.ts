@@ -25,7 +25,7 @@ export const posts: Post[] = [
     },
 ];
 
-export const getPost = ({ tag, search, sort }: { tag: string; search: string; sort: string }) => {
+export const getPost = ({ tag, search, sort }: { tag: string; search: string; sort?: string }) => {
     let arr = [...posts];
     if (tag) {
         arr = arr.filter((post) => post.tags.includes(tag));
@@ -38,7 +38,6 @@ export const getPost = ({ tag, search, sort }: { tag: string; search: string; so
     if (sort) {
         arr = arr.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
     }
-
     return arr;
 };
 
