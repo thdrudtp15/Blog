@@ -3,8 +3,13 @@ import React from 'react';
 import ContentWrap from './ContentWrap';
 import styles from './Search.module.scss';
 import TagItem from './TagItem';
+import { getTags } from '@/data/posts';
 
-const Search = () => {
+const Search = ({ tag }: { tag: string }) => {
+    const tags = getTags();
+
+    console.log(tag);
+
     return (
         <ContentWrap>
             <div className={styles.input}>
@@ -15,9 +20,9 @@ const Search = () => {
                 </select>
             </div>
             <ul className={styles.tags}>
-                {['react', 'next', 'js'].map((item, index) => (
+                {tags.map((item, index) => (
                     <React.Fragment key={index}>
-                        <TagItem>#{item}</TagItem>
+                        <TagItem selected={tag}>{item}</TagItem>
                     </React.Fragment>
                 ))}
             </ul>

@@ -22,7 +22,7 @@ const PostItem = ({ post }: { post: Post }) => {
             <ul className={styles.tags}>
                 {post.tags.map((tag: string, idx: number) => (
                     <React.Fragment key={idx}>
-                        <TagItem>#{tag}</TagItem>
+                        <TagItem>{tag}</TagItem>
                     </React.Fragment>
                 ))}
             </ul>

@@ -1,10 +1,15 @@
 import React from 'react';
 import styles from './PostGrid.module.scss';
 import PostItem from './PostItem';
-import { posts as postData } from '@/data/posts';
+import { getPost, posts as postData } from '@/data/posts';
 
-const PostGrid = () => {
-    const posts = postData;
+type Props = {
+    tag: string;
+    search: string;
+};
+
+const PostGrid = ({ tag, search }: Props) => {
+    const posts = getPost({ tag, search });
 
     return (
         <div className={styles.grid}>

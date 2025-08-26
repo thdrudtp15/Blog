@@ -33,7 +33,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                     <ul style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 10 }}>
                         {post.tags.map((item, index) => (
                             <React.Fragment key={index}>
-                                <TagItem>#{item}</TagItem>
+                                <TagItem>{item}</TagItem>
                             </React.Fragment>
                         ))}
                     </ul>
@@ -41,14 +41,13 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             </div>
             <div style={{ padding: 24 }}>
                 <Markdown content={post.content} />
-                {/* <div className="prose" dangerouslySetInnerHTML={{ __html: markdown }}></div> */}
             </div>
             <nav style={{ display: 'flex', justifyContent: 'space-between', padding: '0 24px 24px' }}>
                 <Link href="/" className="btn">
                     ← 목록으로
                 </Link>
                 <Link href="/" className="btn">
-                    다음 글 탐색 →
+                    다음 글 →
                 </Link>
             </nav>
         </ContentWrap>
