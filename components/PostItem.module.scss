@@ -19,7 +19,7 @@
         // display: inline-block;
         min-width: 2.5rem;
         min-height: 2.5rem;
-        background-color: rgba(223, 223, 223, 0.226);
+        background-color: var(--border);
         border-radius: 0.5rem;
         @include mixins.flex(center, center, 0rem);
     }

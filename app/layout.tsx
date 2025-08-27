@@ -5,7 +5,7 @@ import ThemeProviders from '@/providers/ThemeProviders';
 import Header from '@/components/Header';
 
 import './globals.scss';
-import 'prismjs/themes/prism-tomorrow.css';
+import 'highlight.js/styles/felipec.css'; // 원하는 테마
 
 const geistSans = Geist({
     variable: '--font-geist-sans',
@@ -32,7 +32,7 @@ export default function RootLayout({
             <body className={`${geistSans.variable} ${geistMono.variable}`}>
                 <ThemeProviders>
                     <Header />
-                    {children}
+                    <main className="content">{children}</main>
                     <Footer />
                 </ThemeProviders>
             </body>

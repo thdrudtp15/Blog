@@ -20,11 +20,12 @@ export const saveMarkdown = async (
         errors.title = '파일 명은 숫자 또는 영문이어야 합니다.';
     }
     if (Object.values(errors).find((error) => error)) {
+        console.log(errors);
         return errors;
     }
 
     const saveFileName = slugify(filename, { lower: true, strict: true });
-    const jsFileContent = `export const _${saveFileName} = \`${content}\``;
+    const jsFileContent = `export const _${saveFileName} = \`${content.replaceAll('`', '`')}\``;
 
     const filePath = path.join(process.cwd(), 'markdown', `${saveFileName}.js`);
 
@@ -34,5 +35,5 @@ export const saveMarkdown = async (
         console.log(e);
     }
 
-    return prevState;
+    return errors;
 };

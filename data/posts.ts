@@ -1,18 +1,18 @@
-import { markdownSample } from '@/markdown/post';
+import { readMd } from '@/utils/readMd';
 
 import type { Post } from '@/types/post';
 
 export const posts: Post[] = [
     {
-        slug: 'next-15-app-router-best-practices',
-        title: 'Next.js 15 App Router 베스트 프랙티스Next.js 15 App Router 베스트 프랙티스',
-        description: '레이아웃, 스트리밍, 서버액션을 활용한 구조 설계 노트',
-        category: 'javascript',
-        date: '2025-01-10',
-        tags: ['nextjs', 'react', 'architecture'],
+        slug: 'next-15-app-router-metadata',
+        title: 'Next.js 15 App Router 메타데이터 설정',
+        description: '정적, 동적 메타데이터 설정',
+        category: 'next.js',
+        date: '2025-08-27',
+        tags: ['nextjs'],
         cover: '/cover1.svg',
         readingMinutes: 7,
-        content: markdownSample,
+        content: readMd('nextjs-metadata'),
     },
 ];
 
