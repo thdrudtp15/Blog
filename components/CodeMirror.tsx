@@ -13,11 +13,13 @@ import { indentWithTab } from '@codemirror/commands';
 import WidthController from './WidthController';
 
 import styles from './CodeMirror.module.scss';
+import CodeMirrorToolBar from './CodeMirrorToolBar';
 
 const CodeMirror = ({ onChange }: { onChange: (value: string) => void }) => {
     const ref = useRef<HTMLDivElement | null>(null);
     const editorRef = useRef<HTMLDivElement>(null);
     const viewRef = useRef<EditorView | null>(null);
+    const imageRef = useRef<HTMLInputElement | null>(null);
 
     const [editorContent, setEditorContent] = useState<string>('');
 
@@ -63,8 +65,10 @@ const CodeMirror = ({ onChange }: { onChange: (value: string) => void }) => {
 
     return (
         <div className={styles.codemirror_wrap} ref={ref}>
+            <CodeMirrorToolBar viewRef={viewRef} />
             <div ref={editorRef} className={styles.codemirror} />
             <WidthController ref={ref} />
+            <input type="file" ref={imageRef} accept="*/image" style={{ display: 'none' }} />
         </div>
     );
 };

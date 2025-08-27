@@ -5,12 +5,13 @@ import TagItem from './TagItem';
 import React from 'react';
 
 import type { Post } from '@/types/post';
+import { getIcon } from '@/utils/getIcon';
 
 const PostItem = ({ post }: { post: Post }) => {
     return (
         <ContentWrap>
             <header className={styles.item_header}>
-                <div className={styles.image}></div>
+                <div className={styles.image}>{getIcon(post.category)}</div>
                 <div className={styles.info}>
                     <div className={styles.title_wrap}>
                         <h3 className={styles.title}>{post.title}</h3>

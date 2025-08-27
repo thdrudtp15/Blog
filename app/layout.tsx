@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import Footer from '@/components/Footer';
-import Header from '@/components/Header';
 import ThemeProviders from '@/providers/ThemeProviders';
+import Header from '@/components/Header';
 
 import './globals.scss';
 import 'prismjs/themes/prism-tomorrow.css';

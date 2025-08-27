@@ -1,0 +1,7 @@
+@use '.././app/mixins' as mixins;
+
+.wrapper {
+    @include mixins.flex(center, flex-start, 0.5rem);
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}

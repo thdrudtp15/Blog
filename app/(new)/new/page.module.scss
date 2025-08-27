@@ -3,3 +3,8 @@
     @include mixins.flex(flex-start, flex-start, 0rem);
     width: 100%;
 }
+
+.setting {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+}
