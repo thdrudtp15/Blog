@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import React, { cache } from 'react';
 import { notFound } from 'next/navigation';
 
-import { posts } from '@/data/posts';
+import { postsWithIndex } from '@/data/posts';
 
 import TagItem from '@/components/TagItem';
 import Markdown from '@/components/Markdown';
@@ -12,14 +12,22 @@ import Giscus from '@/components/Giscus';
 import { getMd } from '@/utils/getMd';
 
 import styles from './page.module.scss';
+import Toc from '@/components/Toc';
 
 const getPost = cache((slug: string) => {
-    return posts.find((post) => post.slug === slug);
+    const post = postsWithIndex.find((post) => post.slug === slug);
+    if (!post) notFound();
+
+    const nextPost = postsWithIndex[post.idx + 1];
+    return {
+        post,
+        nextPost,
+    };
 });
 
 export const generateMetadata = async ({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> => {
     const { slug } = await params;
-    const post = getPost(slug);
+    const { post } = getPost(slug);
     if (!post) notFound();
 
     return {
@@ -29,13 +37,12 @@ export const generateMetadata = async ({ params }: { params: Promise<{ slug: str
 };
 
 export async function generateStaticParams() {
-    return posts.map((post) => ({ slug: post.slug }));
+    return postsWithIndex.map((post) => ({ slug: post.slug }));
 }
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-    const post = getPost(slug);
-    if (!post) notFound();
+    const { post, nextPost } = getPost(slug);
 
     const mdData = await getMd(post.content);
 
@@ -61,9 +68,11 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                 <Link href="/" className={styles.nav_item}>
                     ← 목록으로
                 </Link>
-                <Link href="/" className={styles.nav_item}>
-                    다음 글 →
-                </Link>
+                {nextPost && (
+                    <Link href={`/${nextPost.slug}`} className={styles.nav_item}>
+                        다음 글 →
+                    </Link>
+                )}
             </nav>
             <Giscus />
         </div>

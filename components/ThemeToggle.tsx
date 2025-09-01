@@ -7,6 +7,9 @@ import { BsFillMoonStarsFill } from 'react-icons/bs';
 const ThemeToggle = () => {
     const { theme, setTheme } = useTheme();
 
+    // 테마를 조작하는 컴포넌트입니다.
+    // 다크, 라이트 모드를 지원하며, 테마 색상 설정은 app/globals.scss 에서 가능합니다.
+
     return (
         <button
             aria-label="테마"

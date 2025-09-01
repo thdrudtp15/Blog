@@ -2,8 +2,9 @@
 
 .item {
     @include mixins.content-wrap();
-    transition: 0.2s all;
+
     &:hover {
+        transition: 0.2s all;
         border-color: var(--ring);
     }
 }

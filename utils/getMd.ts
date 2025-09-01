@@ -2,7 +2,6 @@ import { remark } from 'remark';
 import remarkGfm from 'remark-gfm';
 import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
-// import rehypePrism from 'rehype-prism-plus';
 import rehypeHighlight from 'rehype-highlight';
 
 export const getMd = async (content: string) => {

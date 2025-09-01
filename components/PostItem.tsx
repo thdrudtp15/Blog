@@ -1,9 +1,12 @@
-import styles from './PostItem.module.scss';
-import TagItem from './TagItem';
+import Link from 'next/link';
 import React from 'react';
+
+import TagItem from './TagItem';
+
 import type { Post } from '@/types/post';
 import { getIcon } from '@/utils/getIcon';
-import Link from 'next/link';
+
+import styles from './PostItem.module.scss';
 
 const PostItem = ({ post }: { post: Post }) => {
     return (

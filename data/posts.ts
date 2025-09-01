@@ -25,22 +25,27 @@ export const posts: Post[] = [
     },
 ];
 
-export const searchPost = ({ tag, search, sort }: { tag: string; search: string; sort?: string }) => {
+export const searchPost = ({ tag, search }: { tag: string; search: string }) => {
     let arr = [...posts];
     if (tag) {
+        // 태그 필터링
         arr = arr.filter((post) => post.tags.includes(tag));
     }
     if (search) {
+        // 검색어 필터링
         arr = arr.filter(
             (post) => post.title.includes(search) || post.description.includes(search) || post.tags.includes(search)
         );
     }
-    if (sort) {
-        arr = arr.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
-    }
+
     return arr;
 };
 
+// 게시글 인덱스가 필요한 경우 사용합니다.
+// 인덱스를 일일히 설정할 필요가 없습니다.
+export const postsWithIndex = posts.map((post, index) => ({ ...post, idx: index }));
+
+// 현재 모든 게시글의 태그를 반환하는 함수입니다.
 export const getTags = () => {
     const tagsArr = posts.map((post) => post.tags);
     const set = new Set(tagsArr.flatMap((tag) => tag));

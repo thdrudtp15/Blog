@@ -3,12 +3,12 @@
 .detail {
     @include mixins.content-width();
     @include mixins.content-wrap();
+    position: relative;
 }
 
 .meta {
     border-bottom: 1px solid var(--border);
-    padding: 1.5rem 1.5rem 0.5rem;
-
+    padding: 1.5rem 1.5rem;
     .title {
         font-size: 2rem;
         line-height: 1.2;

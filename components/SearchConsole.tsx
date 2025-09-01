@@ -15,19 +15,18 @@ const SearchConsole = ({ selectedTag }: { selectedTag: string }) => {
         <div className={styles.search}>
             <div className={styles.input}>
                 <Input />
-                <SelectBox />
             </div>
             <ul className={styles.tags}>
                 <TagItem selected={!selectedTag} tag="all">
                     All
                 </TagItem>
-                {tags.map((tag, index) => (
+                {/* {tags.map((tag, index) => (
                     <React.Fragment key={index}>
                         <TagItem selected={selectedTag === tag} tag={tag}>
                             {tag}
                         </TagItem>
                     </React.Fragment>
-                ))}
+                ))} */}
             </ul>
         </div>
     );

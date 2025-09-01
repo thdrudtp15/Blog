@@ -5,7 +5,9 @@ import ThemeProviders from '@/providers/ThemeProviders';
 import Header from '@/components/Header';
 
 import './globals.scss';
-import 'highlight.js/styles/felipec.css'; // 원하는 테마
+
+// 게시글 디테일 코드 하이라이팅 테마 css
+import 'highlight.js/styles/felipec.css';
 
 const geistSans = Geist({
     variable: '--font-geist-sans',
@@ -17,9 +19,10 @@ const geistMono = Geist_Mono({
     subsets: ['latin'],
 });
 
+// 메타데이터 설정
 export const metadata: Metadata = {
     title: '0x534B53',
-    description: '배운걸 적어요',
+    description: '송경세 블로그',
 };
 
 export default function RootLayout({
