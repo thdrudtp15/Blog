@@ -1,15 +1,13 @@
-import Link from 'next/link';
 import styles from './PostItem.module.scss';
-import ContentWrap from './ContentWrap';
 import TagItem from './TagItem';
 import React from 'react';
-
 import type { Post } from '@/types/post';
 import { getIcon } from '@/utils/getIcon';
+import Link from 'next/link';
 
 const PostItem = ({ post }: { post: Post }) => {
     return (
-        <ContentWrap>
+        <Link href={`/${post.slug}`} className={styles.item}>
             <header className={styles.item_header}>
                 <div className={styles.image}>{getIcon(post.category)}</div>
                 <div className={styles.info}>
@@ -20,20 +18,16 @@ const PostItem = ({ post }: { post: Post }) => {
                 </div>
             </header>
             <p className={styles.description}>{post.description}</p>
-            <ul className={styles.tags}>
-                {post.tags.map((tag: string, idx: number) => (
-                    <React.Fragment key={idx}>
-                        <TagItem>{tag}</TagItem>
-                    </React.Fragment>
-                ))}
-            </ul>
             <div className={styles.read}>
-                <p className={styles.read_time}>{post.readingMinutes} min read</p>
-                <Link href={`/${post.slug}`} aria-label="읽기" className={styles.read_btn}>
-                    읽기
-                </Link>
+                <ul className={styles.tags}>
+                    {post.tags.map((tag: string, idx: number) => (
+                        <React.Fragment key={idx}>
+                            <TagItem>{tag}</TagItem>
+                        </React.Fragment>
+                    ))}
+                </ul>
             </div>
-        </ContentWrap>
+        </Link>
     );
 };
 

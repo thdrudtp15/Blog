@@ -1,0 +1,11 @@
+.input_item {
+    width: 100%;
+    flex: 1;
+    height: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    color: var(--foreground);
+    padding: 0 0.875rem;
+    outline-color: var(--ring);
+    background-color: transparent;
+}

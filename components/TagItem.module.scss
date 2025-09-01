@@ -7,10 +7,15 @@
     padding: 6px 10px;
     font-size: 12px;
     color: var(--muted);
+    background-color: transparent;
+    cursor: pointer;
 
     &.selected,
-    &:hover {
-        background-color: var(--accent);
-        color: white;
+    &.is_hover {
+        &:hover {
+            transition: 0.2s all;
+            background-color: var(--accent);
+            color: white;
+        }
     }
 }

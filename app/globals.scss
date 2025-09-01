@@ -1,3 +1,5 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap');
 :root {
     --background: #ffffff;
     --foreground: #171717;
@@ -84,7 +86,7 @@ body {
 body {
     color: var(--foreground);
     background: var(--background);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Pretendard Variable', Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -120,29 +122,10 @@ a {
 
 /* Card */
 
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    height: 40px;
-    padding: 0 16px;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--foreground);
-}
-
 .btn.primary {
     background: linear-gradient(135deg, var(--accent), var(--ring));
     color: var(--accent-foreground);
     border-color: transparent;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 16px;
 }
 
 @media (max-width: 768px) {

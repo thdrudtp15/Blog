@@ -1,0 +1,32 @@
+@use '../app/mixins' as mixins;
+
+.search {
+    @include mixins.content-wrap();
+}
+
+.input {
+    @include mixins.flex(center, center, 0.5rem);
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.tags {
+    @include mixins.flex(center, flex-start, 0.5rem);
+
+    .tag_item {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 6px 10px;
+        font-size: 12px;
+        color: var(--muted);
+        background-color: rgb(226, 226, 226);
+
+        &:hover {
+            background-color: var(--accent);
+            color: white;
+        }
+    }
+}

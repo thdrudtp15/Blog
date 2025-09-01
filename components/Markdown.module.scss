@@ -9,7 +9,7 @@
     }
 
     p {
-        white-space: pre-wrap;
+        // white-space: pre-wrap;
         margin: 10px 0;
         display: block;
     }
@@ -56,6 +56,8 @@
 
         code {
             background-color: inherit;
+            font-family: 'JetBrains Mono';
+            font-weight: 400;
         }
     }
 
@@ -64,6 +66,8 @@
         background-color: var(--border);
         padding: 0.2rem;
         font-size: 0.875rem;
+        font-weight: bold;
+        font-family: 'Pretendard Variable', Helvetica, sans-serif;
     }
 
     img {
@@ -84,6 +88,9 @@
     }
 
     ul {
+        margin-left: 1rem;
+    }
+    ol {
         margin-left: 1rem;
     }
 }

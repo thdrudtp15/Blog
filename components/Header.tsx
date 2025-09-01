@@ -9,7 +9,7 @@ const Header = ({ children }: { children?: ReactNode }) => {
             <div className={styles.content}>
                 <Link className={styles.brand} href="/" aria-label="홈">
                     <span className={styles.logo}></span>
-                    <strong className={styles.name}>Blog</strong>
+                    <strong className={styles.name}>송경세 블로그</strong>
                 </Link>
                 {children}
                 <ThemeToggle />

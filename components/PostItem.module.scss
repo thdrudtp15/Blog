@@ -1,14 +1,11 @@
 @use '../app/mixins' as mixins;
 
 .item {
-    background: var(--card);
-    color: var(--card-foreground);
-    border: 1px solid var(--border);
-    border-radius: 1rem;
-    padding: 1.25rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-    overflow: hidden;
-    min-width: 0px;
+    @include mixins.content-wrap();
+    transition: 0.2s all;
+    &:hover {
+        border-color: var(--ring);
+    }
 }
 
 .item_header {
@@ -20,6 +17,7 @@
         min-width: 2.5rem;
         min-height: 2.5rem;
         background-color: var(--border);
+        // background-color: rgb(110, 110, 110);
         border-radius: 0.5rem;
         @include mixins.flex(center, center, 0rem);
     }
@@ -54,7 +52,7 @@
 }
 
 .tags {
-    margin-bottom: 1rem;
+    flex: 1;
     @include mixins.flex(center, flex-start, 0.5rem);
 }
 

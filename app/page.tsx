@@ -1,18 +1,18 @@
 import PostGrid from '@/components/PostGrid';
 
 import styles from './page.module.scss';
-import Search from '@/components/Search';
+import SearchConsole from '@/components/SearchConsole';
 
 type Props = {
-    searchParams: Promise<{ tag: string; search: string }>;
+    searchParams: Promise<{ tag: string; search: string; sort: string }>;
 };
 
 const HomePage = async ({ searchParams }: Props) => {
-    const { tag, search } = await searchParams;
+    const { tag, search, sort } = await searchParams;
 
     return (
         <main className={styles.main}>
-            <Search tag={tag} />
+            <SearchConsole selectedTag={tag} />
             <PostGrid tag={tag} search={search} />
         </main>
     );

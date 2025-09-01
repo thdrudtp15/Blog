@@ -1,60 +1,71 @@
 import Link from 'next/link';
-import React from 'react';
+import { Metadata } from 'next';
+import React, { cache } from 'react';
 import { notFound } from 'next/navigation';
 
 import { posts } from '@/data/posts';
-import ContentWrap from '@/components/ContentWrap';
+
 import TagItem from '@/components/TagItem';
 import Markdown from '@/components/Markdown';
-
-import type { Post } from '@/types/post';
-import { getMd } from '@/utils/getMd';
 import Giscus from '@/components/Giscus';
+
+import { getMd } from '@/utils/getMd';
+
+import styles from './page.module.scss';
+
+const getPost = cache((slug: string) => {
+    return posts.find((post) => post.slug === slug);
+});
+
+export const generateMetadata = async ({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> => {
+    const { slug } = await params;
+    const post = getPost(slug);
+    if (!post) notFound();
+
+    return {
+        title: post.title,
+        description: post.description,
+    };
+};
 
 export async function generateStaticParams() {
     return posts.map((post) => ({ slug: post.slug }));
 }
+
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-    const post: Post | undefined = posts.find((post) => post.slug === slug);
+    const post = getPost(slug);
     if (!post) notFound();
 
     const mdData = await getMd(post.content);
 
     return (
-        <ContentWrap>
-            <div
-                style={{
-                    padding: 0,
-                    borderBottom: '1px solid var(--border)',
-                }}
-            >
-                <div style={{ padding: '24px 24px 8px' }}>
-                    <h1 style={{ fontSize: 28, lineHeight: 1.2 }}>{post.title}</h1>
-                    <p style={{ color: 'var(--muted)', marginTop: 6 }}>
-                        {new Date(post.date).toLocaleDateString()} • {post.readingMinutes} min read
-                    </p>
-                    <ul style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 10 }}>
-                        {post.tags.map((item, index) => (
+        <div className={styles.detail}>
+            <div>
+                <div className={styles.meta}>
+                    <h1 className={styles.title}>{post.title}</h1>
+                    <p className={styles.date}>{new Date(post.date).toLocaleDateString()}</p>
+                    <ul className={styles.tags}>
+                        {post.tags.map((tag, index) => (
                             <React.Fragment key={index}>
-                                <TagItem>{item}</TagItem>
+                                <TagItem tag={tag}>{tag}</TagItem>
                             </React.Fragment>
                         ))}
                     </ul>
                 </div>
             </div>
-            <div style={{ padding: 24 }}>
+            <div className={styles.content}>
                 <Markdown mdData={mdData} />
             </div>
-            <nav style={{ display: 'flex', justifyContent: 'space-between', padding: '0 24px 24px' }}>
-                <Link href="/" className="btn">
+            <nav className={styles.navigation}>
+                <Link href="/" className={styles.nav_item}>
                     ← 목록으로
                 </Link>
-                <Link href="/" className="btn">
+                <Link href="/" className={styles.nav_item}>
                     다음 글 →
                 </Link>
             </nav>
             <Giscus />
-        </ContentWrap>
+        </div>
     );
 }

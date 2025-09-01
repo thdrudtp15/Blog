@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './PostGrid.module.scss';
 import PostItem from './PostItem';
-import { getPost } from '@/data/posts';
+import { searchPost } from '@/data/posts';
 
 type Props = {
     tag: string;
@@ -9,7 +9,7 @@ type Props = {
 };
 
 const PostGrid = ({ tag, search }: Props) => {
-    const posts = getPost({ tag, search });
+    const posts = searchPost({ tag, search });
 
     return (
         <div className={styles.grid}>

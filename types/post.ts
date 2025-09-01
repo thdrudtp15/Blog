@@ -1,4 +1,4 @@
-export type Category = 'javascript' | 'react' | 'next.js' | 'css' | 'html';
+export type Category = 'javascript' | 'react' | 'next.js' | 'css' | 'html' | string | null;
 
 export type Post = {
     id?: number;
@@ -9,6 +9,6 @@ export type Post = {
     category: Category;
     tags: string[];
     cover: string;
-    readingMinutes: number;
+    // readingMinutes: number;
     content: string;
 };

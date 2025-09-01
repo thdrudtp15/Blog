@@ -7,16 +7,25 @@ export const posts: Post[] = [
         slug: 'next-15-app-router-metadata',
         title: 'Next.js 15 App Router 메타데이터 설정',
         description: '정적, 동적 메타데이터 설정',
-        category: 'next.js',
+        category: 'react',
         date: '2025-08-27',
         tags: ['nextjs'],
         cover: '/cover1.svg',
-        readingMinutes: 7,
         content: readMd('nextjs-metadata'),
+    },
+    {
+        slug: 'blog-experience',
+        title: '개인 블로그를 만들며..',
+        description: '해당 블로그를 만들며 느낀점',
+        category: null,
+        date: '2025-08-27',
+        tags: ['project'],
+        cover: '/cover1.svg',
+        content: readMd('blog-exp'),
     },
 ];
 
-export const getPost = ({ tag, search, sort }: { tag: string; search: string; sort?: string }) => {
+export const searchPost = ({ tag, search, sort }: { tag: string; search: string; sort?: string }) => {
     let arr = [...posts];
     if (tag) {
         arr = arr.filter((post) => post.tags.includes(tag));
