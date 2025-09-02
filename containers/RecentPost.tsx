@@ -1,4 +1,7 @@
 import PostItem from '@/components/PostItem';
+import Link from 'next/link';
+
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 import styles from './RecentPost.module.scss';
 import { posts } from '@/data/posts';
@@ -6,7 +9,15 @@ import Container from '@/components/Container';
 
 const RecentPost = () => {
     return (
-        <Container title="최신 게시글">
+        <Container>
+            <Container.HeaderWrapper>
+                <Container.Title title="최신 게시글" />
+                <Container.Cta>
+                    <Link className={styles.cta} href="/#모든 게시글">
+                        View All
+                    </Link>
+                </Container.Cta>
+            </Container.HeaderWrapper>
             <main className={styles.content_container}>
                 <div className={styles.featured_post}>
                     <PostItem post={posts[posts.length - 1]}>

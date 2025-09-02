@@ -15,7 +15,10 @@ const PostList = ({ tag, search }: { tag: string; search: string }) => {
     const posts = getPost({ tag, search });
 
     return (
-        <Container title="모든 게시글">
+        <Container>
+            <Container.HeaderWrapper>
+                <Container.Title title="모든 게시글" id="모든 게시글" />
+            </Container.HeaderWrapper>
             <div className={styles.condition}>
                 <ul className={styles.tags}>
                     <li>

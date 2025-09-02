@@ -165,7 +165,8 @@ export default async function Image({ params }: { params: { slug: string } }) {
 
 -   `ImageResponse`는 Flexbox와 CSS 속성의 일부만 지원합니다. (`display: grid`와 같은 고급 레이아웃은 지원하지 않습니다.)
 
-Reference
+## Reference
+
 [next.js 공식문서]('https://nextjs.org/docs/app/getting-started/metadata-and-og-images#generated-metadata')
 
 ---

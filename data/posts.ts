@@ -10,7 +10,7 @@ export const posts: Post[] = [
         description: '정적, 동적 메타데이터 설정 방법과 중요성에 대한 내용을 담고 있습니다.',
         category: 'react',
         date: '2025년 8월 27일',
-        tags: ['nextjs', 'project'],
+        tags: ['nextjs'],
         cover: metadataCover,
         content: readMd('nextjs-metadata'),
     },
