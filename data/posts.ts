@@ -1,5 +1,5 @@
 import { readMd } from '@/utils/readMd';
-import dummyImg from '@/public/images/dummy.png';
+import metadataCover from '@/public/images/metadata_cover.png';
 
 import type { Post } from '@/types/post';
 
@@ -11,19 +11,19 @@ export const posts: Post[] = [
         category: 'react',
         date: '2025년 8월 27일',
         tags: ['nextjs', 'project'],
-        cover: dummyImg,
+        cover: metadataCover,
         content: readMd('nextjs-metadata'),
     },
-    {
-        slug: 'blog-experience',
-        title: '개인 블로그를 만들며..',
-        description: '해당 블로그를 만들며 느낀점',
-        category: null,
-        date: '2025-08-27',
-        tags: ['project'],
-        cover: dummyImg,
-        content: readMd('blog-exp'),
-    },
+    // {
+    //     slug: 'blog-experience',
+    //     title: '개인 블로그를 만들며..',
+    //     description: '해당 블로그를 만들며 느낀점',
+    //     category: null,
+    //     date: '2025-08-27',
+    //     tags: ['project'],
+    //     cover: dummyImg,
+    //     content: readMd('blog-exp'),
+    // },
 ];
 
 export const getPost = ({ tag, search }: { tag: string; search: string }) => {

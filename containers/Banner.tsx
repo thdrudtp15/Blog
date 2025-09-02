@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import styles from './Banner.module.scss';
-import TagItem from '@/compositions/TagItem';
+import TagItem from '@/components/TagItem';
 
 const Banner = ({ children }: { children: ReactNode }) => {
     return <div className={styles.banner}>{children}</div>;

@@ -5,32 +5,32 @@ import { posts } from '@/data/posts';
 import Container from '@/components/Container';
 
 const RecentPost = () => {
-    const post = posts[posts.length - 1];
-
     return (
         <Container title="최신 게시글">
             <main className={styles.content_container}>
                 <div className={styles.featured_post}>
-                    <PostItem post={post}>
-                        <PostItem.Cover cover={post.cover} />
-                        <PostItem.Date date={post.date} />
-                        <PostItem.Title title={post.title} />
-                        <PostItem.Description description={post.description} />
-                        <PostItem.Tags tags={post.tags} />
+                    <PostItem post={posts[posts.length - 1]}>
+                        <PostItem.Cover cover={posts[posts.length - 1].cover} />
+                        <PostItem.Date date={posts[posts.length - 1].date} />
+                        <PostItem.Title title={posts[posts.length - 1].title} />
+                        <PostItem.Description description={posts[posts.length - 1].description} />
+                        <PostItem.Tags tags={posts[posts.length - 1].tags} />
                     </PostItem>
                 </div>
-                {/* <div className={styles.grid}>
-                    <PostItem post={post}>
-                        <PostItem.Cover cover={post.cover} />
-                        <PostItem.Date date={post.date} />
-                        <PostItem.Title title={post.title} />
-                    </PostItem>
-                    <PostItem post={post}>
-                        <PostItem.Cover cover={post.cover} />
-                        <PostItem.Date date={post.date} />
-                        <PostItem.Title title={post.title} />
-                    </PostItem>
-                </div> */}
+                {posts.length >= 3 && (
+                    <div className={styles.grid}>
+                        <PostItem post={posts[posts.length - 2]}>
+                            <PostItem.Cover cover={posts[posts.length - 2].cover} />
+                            <PostItem.Date date={posts[posts.length - 2].date} />
+                            <PostItem.Title title={posts[posts.length - 2].title} />
+                        </PostItem>
+                        <PostItem post={posts[posts.length - 3]}>
+                            <PostItem.Cover cover={posts[posts.length - 3].cover} />
+                            <PostItem.Date date={posts[posts.length - 3].date} />
+                            <PostItem.Title title={posts[posts.length - 3].title} />
+                        </PostItem>
+                    </div>
+                )}
             </main>
         </Container>
     );

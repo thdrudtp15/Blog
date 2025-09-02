@@ -5,12 +5,11 @@
     --foreground: #171717;
     --muted: #4b5563;
     --card: #ffffff;
-    --card-foreground: #111827;
+    --card-foreground: #f3f4f6;
     --border: #e5e7eb;
     --accent: #6d28d9;
     --accent-foreground: #ffffff;
     --ring: #7c3aed;
-    --max-width: 60rem;
     --blockquote-bg: #f3f4f6; /* 밝은 회색 배경, 카드보다 살짝 밝게 */
     --blockquote-border: #d1d5db; /* 약간 진한 회색 테두리 */
     --blockquote-foreground: #374151; /* 본문보다 조금 진한 텍스트 */
@@ -22,7 +21,7 @@
         --foreground: #171717;
         --muted: #4b5563;
         --card: #ffffff;
-        --card-foreground: #111827;
+        --card-foreground: #f3f4f6;
         --border: #e5e7eb;
         --accent: #6d28d9;
         --accent-foreground: #ffffff;
@@ -39,7 +38,7 @@
         --foreground: #e5e7eb; /* 본문 글씨, 밝은 대비 */
         --muted: #9ca3af; /* 서브 텍스트 */
         --card: #1b1e26; /* 카드 배경, 배경과 구분되게 약간 밝게 */
-        --card-foreground: #f3f4f6; /* 카드 글씨, 충분한 대비 */
+        --card-foreground: #111827;
         --border: #4b5563; /* 카드/섹션 경계, 약간 더 밝게 */
         --accent: #8b5cf6; /* 버튼/링크 포인트, 좀 더 밝게 */
         --accent-foreground: #ffffff; /* 포인트 텍스트 */
@@ -54,13 +53,14 @@
     --foreground: #171717;
     --muted: #4b5563;
     --card: #ffffff;
-    --card-foreground: #111827;
+    --card-foreground: #f3f4f6;
     --border: #e5e7eb;
     --accent: #6d28d9;
     --accent-foreground: #ffffff;
     --ring: #7c3aed;
     --blockquote-bg: #f3f4f6; /* 밝은 회색 배경, 카드보다 살짝 밝게 */
     --blockquote-border: #d1d5db; /* 약간 진한 회색 테두리 */
+    --blockquote-foreground: #374151; /* 본문보다 조금 진한 텍스트 */
 }
 
 .dark {
@@ -68,7 +68,7 @@
     --foreground: #e5e7eb; /* 본문 글씨, 밝은 대비 */
     --muted: #9ca3af; /* 서브 텍스트 */
     --card: #1b1e26; /* 카드 배경, 배경과 구분되게 약간 밝게 */
-    --card-foreground: #f3f4f6; /* 카드 글씨, 충분한 대비 */
+    --card-foreground: #111827;
     --border: #4b5563; /* 카드/섹션 경계, 약간 더 밝게 */
     --accent: #8b5cf6; /* 버튼/링크 포인트, 좀 더 밝게 */
     --accent-foreground: #ffffff; /* 포인트 텍스트 */
@@ -105,33 +105,4 @@ a {
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 1rem;
-}
-
-[data-container] {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    min-height: 100svh;
-}
-
-[data-main] {
-    width: min(1100px, 100%);
-    margin-inline: auto;
-    padding: 24px 20px 64px;
-}
-
-/* Card */
-
-.btn.primary {
-    background: linear-gradient(135deg, var(--accent), var(--ring));
-    color: var(--accent-foreground);
-    border-color: transparent;
-}
-
-@media (max-width: 768px) {
-    [data-main] {
-        padding: 16px 14px 48px;
-    }
-    .grid {
-        grid-template-columns: repeat(6, 1fr);
-    }
 }

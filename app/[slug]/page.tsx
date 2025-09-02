@@ -60,7 +60,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                     <div className={styles.cover}>
                         <Image src={post.cover} fill alt="게시글 커버 이미지" />
                     </div>
-                    <div>
+                    <div style={{ width: '100%' }}>
                         <Markdown mdData={mdData} />
                     </div>
                     <nav></nav>
@@ -69,34 +69,5 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                 <Toc mdData={mdData} />
             </div>
         </div>
-        // <div className={styles.detail}>
-        //     <div>
-        //         <div className={styles.meta}>
-        //             <h1 className={styles.title}>{post.title}</h1>
-        //             <p className={styles.date}>{new Date(post.date).toLocaleDateString()}</p>
-        //             <ul className={styles.tags}>
-        //                 {post.tags.map((tag, index) => (
-        //                     <React.Fragment key={index}>
-        //                         <TagItem tag={tag}>{tag}</TagItem>
-        //                     </React.Fragment>
-        //                 ))}
-        //             </ul>
-        //         </div>
-        //     </div>
-        //     <div className={styles.content}>
-        //         <Markdown mdData={mdData} />
-        //     </div>
-        //     <nav className={styles.navigation}>
-        //         <Link href="/" className={styles.nav_item}>
-        //             ← 목록으로
-        //         </Link>
-        //         {nextPost && (
-        //             <Link href={`/${nextPost.slug}`} className={styles.nav_item}>
-        //                 다음 글 →
-        //             </Link>
-        //         )}
-        //     </nav>
-        //     <Giscus />
-        // </div>
     );
 }

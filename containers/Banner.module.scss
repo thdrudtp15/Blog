@@ -1,10 +1,11 @@
 .banner {
-    height: 15rem;
+    min-height: 15rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     align-items: center;
     justify-content: center;
+    padding: 1rem;
 }
 
 .title {

@@ -59,6 +59,7 @@
             display: block;
             width: 100%;
             overflow: auto;
+            color: var(--foreground);
             background-color: inherit;
             font-family: 'JetBrains Mono';
             font-weight: 400;
@@ -67,7 +68,8 @@
 
     code {
         border-radius: 0.2rem;
-        background-color: var(--border);
+        background-color: var(--card-foreground);
+        color: var(--ring);
         padding: 0.2rem;
         font-size: 0.875rem;
         font-weight: bold;

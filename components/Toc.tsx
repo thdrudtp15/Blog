@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
+
 import styles from './Toc.module.scss';
 
 const Toc = ({ mdData }: { mdData: string }) => {
@@ -21,16 +22,21 @@ const Toc = ({ mdData }: { mdData: string }) => {
 
     return (
         <aside className={styles.toc_container}>
-            <div className={styles.toc}>
-                {!loading &&
-                    toc &&
-                    toc.map((content: { level: number; text: string; id: string }, index: number) => (
-                        <a key={index} href={`#${content.id}`} className={styles[`heading${content.level}`]}>
-                            {content.text}
-                        </a>
-                    ))}
-                {loading && <div>로딩중</div>}
-            </div>
+            {!loading && (
+                <div className={styles.toc}>
+                    {toc &&
+                        toc.map((content: { level: number; text: string; id: string }, index: number) => (
+                            <a key={index} href={`#${content.id}`} className={styles[`heading${content.level}`]}>
+                                {content.text}
+                            </a>
+                        ))}
+                </div>
+            )}
+            {loading && (
+                <div className={styles.loading}>
+                    <AiOutlineLoading3Quarters className={styles.loading_icon} fontSize={32} />
+                </div>
+            )}
         </aside>
     );
 };

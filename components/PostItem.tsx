@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React, { ReactNode } from 'react';
 import Image, { StaticImageData } from 'next/image';
 
-import TagItem from '@/compositions/TagItem';
+import TagItem from '@/components/TagItem';
 
 import type { Post } from '@/types/post';
 
@@ -23,7 +23,7 @@ const Title = ({ title }: { title: string }) => {
 };
 
 const Date = ({ date }: { date: string }) => {
-    return <time className={styles.date}>{date}</time>;
+    return <p className={styles.date}>{date}</p>;
 };
 
 const Cover = ({ cover }: { cover: StaticImageData }) => {
