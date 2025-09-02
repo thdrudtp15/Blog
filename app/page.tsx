@@ -1,19 +1,23 @@
-import PostGrid from '@/components/PostGrid';
-
 import styles from './page.module.scss';
-import SearchConsole from '@/components/SearchConsole';
+import RecentPost from '@/containers/RecentPost';
+import PostList from '@/containers/PostList';
+import Banner from '@/containers/Banner';
 
 type Props = {
-    searchParams: Promise<{ tag: string; search: string; sort: string }>;
+    searchParams: Promise<{ tag: string; search: string }>;
 };
 
 const HomePage = async ({ searchParams }: Props) => {
-    const { tag, search, sort } = await searchParams;
+    const { tag, search } = await searchParams;
 
     return (
         <main className={styles.main}>
-            <SearchConsole selectedTag={tag} />
-            <PostGrid tag={tag} search={search} />
+            <Banner>
+                <Banner.Title title={'타이틀'} />
+                <Banner.Description description="최적화를 좋아하는 개발자 송경세의 블로그입니다." />
+            </Banner>
+            <RecentPost />
+            <PostList tag={tag} search={search} />
         </main>
     );
 };

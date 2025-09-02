@@ -1,47 +1,19 @@
-@use '../mixins' as mixins;
-
-.detail {
-    @include mixins.content-width();
-    @include mixins.content-wrap();
-    position: relative;
-}
-
-.meta {
-    border-bottom: 1px solid var(--border);
-    padding: 1.5rem 1.5rem;
-    .title {
-        font-size: 2rem;
-        line-height: 1.2;
-    }
-
-    .date {
-        color: var(--muted);
-        margin: 0.5rem 0;
-        font-size: 0.875rem;
-    }
-    .tags {
-        @include mixins.flex(flex-start, flex-start, 0.5rem);
-    }
+.content_container {
+    display: flex;
+    gap: 1rem;
 }
 
 .content {
-    padding: 1.5rem;
+    flex: 1;
 }
 
-.navigation {
-    @include mixins.flex(flex-start, space-between, 1rem);
-    padding: 0 1.5rem 1.5rem;
-
-    .nav_item {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        height: 40px;
-        padding: 0 16px;
-        border-radius: 12px;
-        border: 1px solid var(--border);
-        background: transparent;
-        color: var(--foreground);
+.cover {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 1rem;
+    img {
+        object-fit: cover;
     }
 }

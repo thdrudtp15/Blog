@@ -11,7 +11,6 @@
     }
 
     p {
-        // white-space: pre-wrap;
         margin: 10px 0;
         display: block;
     }
@@ -52,11 +51,14 @@
         background-color: rgb(26, 26, 32);
         border-radius: 0.875rem;
         padding: 1rem;
-        overflow: auto;
         margin: 2rem 0;
         font-size: 0.875rem;
-
+        width: 100%;
+        display: block;
         code {
+            display: block;
+            width: 100%;
+            overflow: auto;
             background-color: inherit;
             font-family: 'JetBrains Mono';
             font-weight: 400;

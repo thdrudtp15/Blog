@@ -1,13 +1,25 @@
 .toc_container {
-    height: 100%;
-    background-color: red;
-    position: absolute;
-    top: 0;
-    left: 100%;
+    position: relative;
+    width: 20%;
 }
 
 .toc {
     position: sticky;
-    top: 0;
-    left: 0;
+    top: 3rem;
+    border-left: 0.5rem solid var(--border);
+    padding-left: 0.5rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.heading1 {
+    padding-left: 1rem;
+}
+.heading2 {
+    padding-left: 0.875rem;
+}
+.heading3 {
+    padding-left: 0.5rem;
 }

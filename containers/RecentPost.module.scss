@@ -1,0 +1,32 @@
+.title {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1rem;
+}
+
+.content_container {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+}
+
+.featured_post {
+    width: 80%;
+}
+
+.grid {
+    // flex: 1;
+}
+
+@media screen and (max-width: 768px) {
+    .content_container {
+        flex-direction: column;
+    }
+    .featured_post {
+        width: 100%;
+    }
+    .grid {
+        display: flex;
+        gap: 1rem;
+    }
+}

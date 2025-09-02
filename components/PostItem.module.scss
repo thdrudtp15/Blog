@@ -1,79 +1,42 @@
-@use '../app/mixins' as mixins;
-
-.item {
-    @include mixins.content-wrap();
-
-    &:hover {
-        transition: 0.2s all;
-        border-color: var(--ring);
-    }
+.container {
+    width: 100%;
 }
 
-.item_header {
-    @include mixins.flex(center, flex-start, 0.5rem);
-    margin-bottom: 1rem;
-
-    .image {
-        // display: inline-block;
-        min-width: 2.5rem;
-        min-height: 2.5rem;
-        background-color: var(--border);
-        // background-color: rgb(110, 110, 110);
-        border-radius: 0.5rem;
-        @include mixins.flex(center, center, 0rem);
-    }
-
-    .info {
-        overflow: hidden;
-        .title_wrap {
-            width: 100%;
-            min-width: 0; /* grid 안에서 필수 */
-        }
-        .title {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            font-size: 1.125rem;
-        }
-        .create_at {
-            font-size: 0.875rem;
-            color: var(--muted);
-        }
-    }
-}
-
-.description {
-    min-width: 0px;
+.cover {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 1.5rem;
+    border-radius: 0.5rem;
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    img {
+        object-fit: cover;
+    }
+    &:hover {
+        img {
+            transform: scale(105%);
+            transition: 0.5s all;
+        }
+    }
+}
+
+.date {
     color: var(--muted);
     font-size: 0.875rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.title {
+    margin-bottom: 1rem;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+.description {
+    margin-bottom: 1.5rem;
 }
 
 .tags {
-    flex: 1;
-    @include mixins.flex(center, flex-start, 0.5rem);
-}
-
-.read {
-    @include mixins.flex(center, space-between, 0rem);
-
-    .read_time {
-        color: var(--muted);
-        font-size: 0.875rem;
-    }
-    .read_btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        height: 40px;
-        padding: 0 16px;
-        border-radius: 12px;
-        border: 1px solid var(--border);
-        background: var(--accent);
-        color: white;
-    }
+    display: flex;
+    gap: 0.5rem;
 }

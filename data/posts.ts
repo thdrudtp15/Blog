@@ -1,4 +1,5 @@
 import { readMd } from '@/utils/readMd';
+import dummyImg from '@/public/images/dummy.png';
 
 import type { Post } from '@/types/post';
 
@@ -6,11 +7,11 @@ export const posts: Post[] = [
     {
         slug: 'next-15-app-router-metadata',
         title: 'Next.js 15 App Router 메타데이터 설정',
-        description: '정적, 동적 메타데이터 설정',
+        description: '정적, 동적 메타데이터 설정 방법과 중요성에 대한 내용을 담고 있습니다.',
         category: 'react',
-        date: '2025-08-27',
-        tags: ['nextjs'],
-        cover: '/cover1.svg',
+        date: '2025년 8월 27일',
+        tags: ['nextjs', 'project'],
+        cover: dummyImg,
         content: readMd('nextjs-metadata'),
     },
     {
@@ -20,12 +21,12 @@ export const posts: Post[] = [
         category: null,
         date: '2025-08-27',
         tags: ['project'],
-        cover: '/cover1.svg',
+        cover: dummyImg,
         content: readMd('blog-exp'),
     },
 ];
 
-export const searchPost = ({ tag, search }: { tag: string; search: string }) => {
+export const getPost = ({ tag, search }: { tag: string; search: string }) => {
     let arr = [...posts];
     if (tag) {
         // 태그 필터링

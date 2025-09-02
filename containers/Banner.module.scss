@@ -1,0 +1,20 @@
+.banner {
+    height: 15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-size: 3rem;
+    max-width: 70%;
+    text-align: center;
+    word-break: break-word;
+}
+
+.tags {
+    display: flex;
+    gap: 0.5rem;
+}
