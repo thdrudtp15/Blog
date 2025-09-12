@@ -8,22 +8,20 @@ export const posts: Post[] = [
         slug: 'next-15-app-router-metadata',
         title: 'Next.js 15 App Router 메타데이터 설정',
         description: '정적, 동적 메타데이터 설정 방법과 중요성에 대한 내용을 담고 있습니다.',
-        category: 'react',
-        date: '2025년 8월 27일',
-        tags: ['nextjs'],
+        date: '2025년 08월 27일',
+        tags: ['Next.js'],
         cover: metadataCover,
         content: readMd('nextjs-metadata'),
     },
-    // {
-    //     slug: 'blog-experience',
-    //     title: '개인 블로그를 만들며..',
-    //     description: '해당 블로그를 만들며 느낀점',
-    //     category: null,
-    //     date: '2025-08-27',
-    //     tags: ['project'],
-    //     cover: dummyImg,
-    //     content: readMd('blog-exp'),
-    // },
+    {
+        slug: 'giscus',
+        title: 'GISCUS로 댓글 기능 구현하기',
+        description: 'GISCUS를 이용하여 댓글 기능을 구현하는 방법에 대해 알아봅니다.',
+        date: '2025년 08월 27일',
+        tags: ['OpenSource'],
+        cover: metadataCover,
+        content: readMd('giscus'),
+    },
 ];
 
 export const getPost = ({ tag, search }: { tag: string; search: string }) => {

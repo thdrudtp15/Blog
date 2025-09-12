@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📝 블로그 프로젝트
 
-## Getting Started
+나만의 글과 생각을 정리하고 공유하기 위한 개인 블로그입니다.  
+직장에서 HackMD를 사용하며 _“서버 없이 Markdown 파일만으로 블로그를 만들 수 있지 않을까?”_ 하는 아이디어에서 시작되었습니다.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🔗 배포 링크
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-   [https://your-blog.vercel.app](https://your-blog.vercel.app)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ✨ 주요 기능
 
-## Learn More
+-   📖 마크다운 기반 포스트 작성 및 관리
+-   🔍 검색 기능
+-   📱 반응형 디자인
+-   🌙 다크 모드 지원
+-   📜 TOC(목차) 자동 생성
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ 기술 스택
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Category  | Tech                                        |
+| --------- | ------------------------------------------- |
+| Frontend  | Next.js, React, JavaScript, TypeScript      |
+| Tools     | ESLint, Prettier, Vercel                    |
+| Libraries | CodeMirror, highlight.js, remark, rehype 등 |
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📝 특징
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+-   **서버리스 프로젝트**: 별도 서버 없이 클라우드 환경에서 동작해 관리 부담을 줄였습니다.
+
+-   **Markdown 기반 콘텐츠 관리**: 포스트는 `.md` 파일로 작성하고, 메타데이터는 객체 형태로 관리해 직관성을 높였습니다.
+
+-   **자동 데이터 매핑**: 파일명을 추적해 콘텐츠와 데이터를 손쉽게 연결할 수 있도록 구현했습니다.
+
+---
+
+## 📚 배운 점
+
+-   **서버리스와 SSG 이해**: Next.js의 정적 사이트 생성(SSG) 기능을 활용하며 서버 없이도 빠른 배포와 성능을 확보할 수 있다는 점을 배웠습니다.
+
+-   **콘텐츠 관리 자동화**: 파일 시스템을 활용해 콘텐츠를 효율적으로 관리하는 방식을 체득했습니다.
+
+-   **Giscus 댓글 기능 도입**: 서버리스 구조를 유지하면서 댓글 기능을 구현해 목표를 달성했습니다.
+
+-   **Markdown 활용 능력**: Markdown을 기반으로 한 유연한 워크플로우 설계 역량을 쌓았습니다.
+
+---
+
+## 🧩 어려웠던 점
+
+-   **마크다운 렌더링 커스터마이징**: 단순 렌더링 시 스타일 제어가 어려웠으나, `remark`와 `highlight.js`를 사용해 문제를 해결했습니다.
+
+-   **TOC 구현**: JavaScript만으로 구현 시 불필요한 스타일 적용 문제가 발생해 `DOMParser`를 활용, 마크다운에서 필요한 데이터만 추출하는 방식으로 개선했습니다.

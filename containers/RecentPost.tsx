@@ -28,20 +28,23 @@ const RecentPost = () => {
                         <PostItem.Tags tags={posts[posts.length - 1].tags} />
                     </PostItem>
                 </div>
-                {posts.length >= 3 && (
-                    <div className={styles.grid}>
+
+                <div className={styles.grid}>
+                    {posts.length > 1 && (
                         <PostItem post={posts[posts.length - 2]}>
                             <PostItem.Cover cover={posts[posts.length - 2].cover} />
                             <PostItem.Date date={posts[posts.length - 2].date} />
                             <PostItem.Title title={posts[posts.length - 2].title} />
                         </PostItem>
+                    )}
+                    {posts.length > 2 && (
                         <PostItem post={posts[posts.length - 3]}>
                             <PostItem.Cover cover={posts[posts.length - 3].cover} />
                             <PostItem.Date date={posts[posts.length - 3].date} />
                             <PostItem.Title title={posts[posts.length - 3].title} />
                         </PostItem>
-                    </div>
-                )}
+                    )}
+                </div>
             </main>
         </Container>
     );

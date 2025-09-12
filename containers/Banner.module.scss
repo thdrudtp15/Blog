@@ -15,6 +15,11 @@
     word-break: break-word;
 }
 
+.date {
+    font-size: 0.875rem;
+    color: var(--muted);
+}
+
 .tags {
     display: flex;
     gap: 0.5rem;

@@ -167,6 +167,6 @@ export default async function Image({ params }: { params: { slug: string } }) {
 
 ## Reference
 
-[next.js 공식문서]('https://nextjs.org/docs/app/getting-started/metadata-and-og-images#generated-metadata')
+[next.js 공식문서](https://nextjs.org/docs/app/getting-started/metadata-and-og-images#generated-metadata)
 
 ---

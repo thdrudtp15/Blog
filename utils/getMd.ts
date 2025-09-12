@@ -10,7 +10,7 @@ export const getMd = async (content: string) => {
         .use(remarkGfm) // GitHub 스타일 Markdown
         .use(remarkRehype) // Markdown AST → HTML AST
         .use(rehypeSlug) // id 자동 생성.
-        .use(rehypeHighlight) // PrismJS 하이라이팅
+        .use(rehypeHighlight) // highlight.js 코드 하이라이팅
         .use(rehypeStringify) // HTML 문자열로 변환
         .process(content);
 
