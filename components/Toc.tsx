@@ -15,17 +15,17 @@ const Toc = ({ source }: { source: string }) => {
     const [ast, setAst] = useState('');
     const [loading, setLoading] = useState(true);
 
-    const getResult = async () => {
-        const result = await remark()
-            .use(remarkRehype) // Markdown AST → HTML AST
-            .use(rehypeSlug) // id 자동 생성.
-            .use(rehypeStringify)
-            .process(source);
-
-        setAst(result.toString());
-    };
-
     useEffect(() => {
+        const getResult = async () => {
+            const result = await remark()
+                .use(remarkRehype) // Markdown AST → HTML AST
+                .use(rehypeSlug) // id 자동 생성.
+                .use(rehypeStringify)
+                .process(source);
+
+            setAst(result.toString());
+        };
+
         if (!ast) {
             getResult();
             return;

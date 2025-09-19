@@ -6,7 +6,6 @@ import useTheme from 'next-theme';
 const Giscus = () => {
     const ref = useRef<HTMLDivElement>(null);
     const { theme } = useTheme();
-    console.log(theme);
 
     useEffect(() => {
         if (!ref.current || ref.current.hasChildNodes()) return;

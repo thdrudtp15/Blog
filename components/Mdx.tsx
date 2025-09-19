@@ -1,11 +1,11 @@
 'use client';
-
 import { MDXRemote } from 'next-mdx-remote';
-import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 import styles from './Mdx.module.scss';
 
-const Mdx = ({ source }: { source: MDXRemoteSerializeResult }) => {
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
+
+const Mdx = ({ source }: { source: MDXRemoteSerializeResult<Record<string, unknown>, Record<string, unknown>> }) => {
     return (
         <div className={styles.markdown}>
             <MDXRemote {...source} />

@@ -35,11 +35,11 @@ export async function generateStaticParams() {
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
     const post = getPost({ slug });
-    console.log('d');
     if (!post) notFound();
 
     const content = await serialize(post.content, {
         mdxOptions: { rehypePlugins: [rehypeHighlight, rehypeSlug, rehypeStringify] },
+        scope: {},
     });
 
     return (

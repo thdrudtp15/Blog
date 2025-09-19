@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 
 import styles from './Container.module.scss';
-import Link from 'next/link';
 
 const Container = ({ children }: { children: ReactNode }) => {
     return <div>{children}</div>;
