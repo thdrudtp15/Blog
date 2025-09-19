@@ -3,16 +3,16 @@ import Link from 'next/link';
 
 import Container from '@/components/Container';
 
-import { getPost, getTags } from '@/data/posts';
-
 import styles from './PostList.module.scss';
 
 import PostItem from '@/components/PostItem';
 import Search from '@/components/Search';
 
+import { getPosts, getTags } from '@/utils/getPosts';
+
 const PostList = ({ tag, search }: { tag: string; search: string }) => {
     const tags = getTags();
-    const posts = getPost({ tag, search });
+    const posts = getPosts({ tag, search });
 
     return (
         <Container>

@@ -7,11 +7,8 @@ const Header = () => {
         <header className={styles.header}>
             <div className={styles.content}>
                 <Link className={styles.brand} href="/" aria-label="홈">
-                    {/*헤더 로고를 설정합니다. */}
-                    {/* <span className={styles.logo}></span> */}
-                    <strong className={styles.name}>De35he</strong>
+                    <strong className={styles.name}>De95he</strong>
                 </Link>
-                {/* 테마 설정 토글 (다크모드, 라이트 모드 */}
                 <ThemeToggle />
             </div>
         </header>

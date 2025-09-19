@@ -21,8 +21,8 @@ const geistMono = Geist_Mono({
 
 // 메타데이터 설정
 export const metadata: Metadata = {
-    title: '송경세의 개발 블로그',
-    description: '송경세의 개발 블로그입니다.',
+    title: 'De95he Dev blog',
+    description: '프론트엔드 공부 일지🐜',
 };
 
 export default function RootLayout({

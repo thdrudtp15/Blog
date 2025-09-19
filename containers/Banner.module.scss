@@ -15,6 +15,15 @@
     word-break: break-word;
 }
 
+.description {
+    font-size: 1.25rem;
+    max-width: 60%;
+    color: var(--muted);
+    margin: 1rem auto 0;
+    line-height: 1;
+    word-break: keep-all;
+}
+
 .date {
     font-size: 0.875rem;
     color: var(--muted);

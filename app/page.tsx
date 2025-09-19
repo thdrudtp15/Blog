@@ -13,8 +13,8 @@ const HomePage = async ({ searchParams }: Props) => {
     return (
         <main className={styles.main}>
             <Banner>
-                <Banner.Title title={'타이틀'} />
-                <Banner.Description description="최적화를 좋아하는 개발자 송경세의 블로그입니다." />
+                <Banner.Title title={'De95he Dev blog'} />
+                <Banner.Description description="프론트엔드 공부 일지🐜" />
             </Banner>
             <RecentPost />
             <PostList tag={tag} search={search} />

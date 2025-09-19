@@ -1,0 +1,112 @@
+---
+ title: 'Next.js 15 App Router 정적, 동적 메타데이터 설정'
+ description: '정적, 동적 메타데이터 설정 방법'
+ date: '2025년 08월 27일'
+ tags: ['Next.js']
+ cover: /covers/metadata.webp
+---
+
+# Next.js 메타데이터
+
+Next.js의 메타데이터 API를 활용하면 웹사이트의 **SEO(검색 엔진 최적화)** 와 소셜 미디어 공유 기능을 쉽게 개선할 수 있습니다.
+
+-   정적 **`metadata`** 오브젝트트
+-   동적 **`generateMetadata`** 함수
+-   특별한 **파일 규칙** (파비콘, OG 이미지 등)
+
+이러한 방법을 사용하면 Next.js가 자동으로 `<head>` 태그를 생성해 줍니다. 모든 메타데이터 정의는 서버 컴포넌트에서만 지원됩니다.
+
+---
+
+## 정적 메타데이터
+
+정적 메타데이터는 빌드 시점에 결정되는, 변하지 않는 정보에 사용합니다. `layout.js` 또는 `page.js` 파일에서 **`Metadata`** 객체를 내보내면 됩니다.
+
+```typescript
+// app/blog/layout.tsx
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: '홈페이지 제목',
+    description: '홈페이지에 대한 설명',
+};
+
+export default function Page() {}
+```
+
+---
+
+## 동적 메타데이터
+
+동적 메타데이터는 데이터에 따라 내용이 달라지는 정보에 사용합니다. 예를 들어, 블로그 게시물 제목처럼 페이지를 렌더링할 때 데이터를 가져와야 할 경우 **`generateMetadata`** 함수를 사용합니다.
+
+```typescript
+// app/blog/[slug]/page.tsx
+import getData from '@/server/getData';
+import type { Metadata, ResolvingMetadata } from 'next';
+
+type Props = {
+    params: { slug: string };
+};
+
+export const generateMetadata = ({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> => {
+    const post = getData();
+    const parentMetadata = await parent;
+
+    return {
+        ...parentMetadata,
+        title: post.title,
+        description: post.description,
+    };
+};
+
+export default function Page({ params }: Props) {}
+```
+
+`generateMetadata`만 사용할 경우 부모 레이아웃에서 정의된 메타데이터를 `재정의`하게 됩니다.
+부모 레이아웃에서 받은 메타데이터 오브젝트를 가져와 오버라이드 하기 위해선 parent를 사용할 수 있습니다.
+
+### 데이터 요청 메모이제이션 (Memoizing)
+
+메타데이터와 페이지 컴포넌트에서 동일한 데이터를 가져와야 할 때, 어쩔 수 없이 중복 요청을 하게 됩니다. 이러한 중복 요청을 피하기 위해 React의 **`cache`** 함수를 사용해 데이터 요청을 한 번만 실행하도록 할 수 있습니다.
+
+```typescript
+// app/lib/data.ts
+import { cache } from 'react';
+import { db } from '@/app/lib/db';
+
+export const getPost = cache(async (slug: string) => {
+    console.log('getPost 함수 실행');
+    const res = await db.query.posts.findFirst({ where: eq(posts.slug, slug) });
+    return res;
+});
+```
+
+```typescript
+// app/blog/[slug]/page.tsx
+import { getPost } from '@/app/lib/data';
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+    const post = await getPost(params.slug);
+    return {
+        title: post.title,
+        description: post.description,
+    };
+}
+
+export default async function Page({ params }: { params: { slug: string } }) {
+    const post = await getPost(params.slug);
+    return <div>{post.title}</div>;
+}
+```
+
+```bash
+// console
+getPost 함수 실행
+```
+
+## 참고
+
+[Next.js 공식문서](https://nextjs.org/docs/app/getting-started/metadata-and-og-images#generated-metadata)
+
+---

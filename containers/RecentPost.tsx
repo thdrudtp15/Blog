@@ -1,11 +1,10 @@
 import PostItem from '@/components/PostItem';
 import Link from 'next/link';
 
-import { FaExternalLinkAlt } from 'react-icons/fa';
-
 import styles from './RecentPost.module.scss';
-import { posts } from '@/data/posts';
 import Container from '@/components/Container';
+
+import { posts } from '@/utils/getPosts';
 
 const RecentPost = () => {
     return (
