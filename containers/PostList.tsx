@@ -48,7 +48,7 @@ const PostList = ({ tag, search }: { tag: string; search: string }) => {
                 <div className={styles.post_grid}>
                     {posts.map((post) => (
                         <React.Fragment key={post.slug}>
-                            <PostItem post={post}>
+                            <PostItem slug={post.slug}>
                                 <PostItem.Cover cover={post.cover} />
                                 <PostItem.Date date={post.date} />
                                 <PostItem.Title title={post.title} />

@@ -4,13 +4,13 @@ import Image, { StaticImageData } from 'next/image';
 
 import TagItem from '@/components/TagItem';
 
-import type { Post } from '@/types/post';
+import { formatDate } from '@/utils/formatDate';
 
 import styles from './PostItem.module.scss';
 
-const PostItem = ({ post, children }: { post: Post; children: ReactNode }) => {
+const PostItem = ({ slug, children }: { slug: string; children: ReactNode }) => {
     return (
-        <Link href={`/${post.slug}`}>
+        <Link href={`/${slug}`}>
             <article className={styles.container}>{children}</article>
         </Link>
     );
@@ -23,7 +23,7 @@ const Title = ({ title }: { title: string }) => {
 };
 
 const Date = ({ date }: { date: string }) => {
-    return <p className={styles.date}>{date}</p>;
+    return <p className={styles.date}>{formatDate(date)}</p>;
 };
 
 const Cover = ({ cover }: { cover: StaticImageData }) => {

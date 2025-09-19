@@ -30,19 +30,19 @@ const loadPosts = (): Post[] => {
 
 export const posts = loadPosts();
 
-export const getPosts = ({ tag, search }: { tag: string; search: string }) => {
-    let arr = [...posts];
+export const getPosts = ({ tag, search }: { tag?: string; search?: string }) => {
+    let newPosts = [...posts];
     if (tag) {
         // 태그 필터링
-        arr = arr.filter((post) => post.tags.includes(tag));
+        newPosts = newPosts.filter((post) => post.tags.includes(tag));
     }
     if (search) {
         // 검색어 필터링
-        arr = arr.filter(
+        newPosts = newPosts.filter(
             (post) => post.title.includes(search) || post.description.includes(search) || post.tags.includes(search)
         );
     }
-    return arr;
+    return newPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 };
 
 export const getPost = cache(({ slug }: { slug: string }) => {

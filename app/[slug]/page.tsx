@@ -12,8 +12,8 @@ import Banner from '@/containers/Banner';
 import Mdx from '@/components/Mdx';
 import Giscus from '@/components/Giscus';
 
-import { posts } from '@/utils/getPosts';
-import { getPost } from '@/utils/getPosts';
+import { posts, getPost } from '@/utils/getPosts';
+import { formatDate } from '@/utils/formatDate';
 
 import styles from './page.module.scss';
 
@@ -46,7 +46,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         <div>
             <Banner>
                 <Banner.Title title={post.title} />
-                <Banner.Date date={post.date} />
+                <Banner.Date date={formatDate(post.date)} />
                 <Banner.Tags tags={post.tags} />
             </Banner>
 
