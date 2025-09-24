@@ -54,7 +54,6 @@ export const generateMetadata = ({ params }: Props, parent: ResolvingMetadata): 
     const parentMetadata = await parent;
 
     return {
-        ...parentMetadata,
         title: post.title,
         description: post.description,
     };
