@@ -6,6 +6,7 @@ import { serialize } from 'next-mdx-remote/serialize';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeSlug from 'rehype-slug';
 import rehypeStringify from 'rehype-stringify';
+import remarkGfm from 'remark-gfm';
 
 import Toc from '@/components/Toc';
 import Banner from '@/containers/Banner';
@@ -38,7 +39,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
     if (!post) notFound();
 
     const content = await serialize(post.content, {
-        mdxOptions: { rehypePlugins: [rehypeHighlight, rehypeSlug, rehypeStringify] },
+        mdxOptions: { rehypePlugins: [rehypeHighlight, rehypeSlug, rehypeStringify], remarkPlugins: [remarkGfm] },
         scope: {},
     });
 

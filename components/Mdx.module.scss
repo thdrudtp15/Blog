@@ -106,4 +106,22 @@
         font-size: 0.8rem;
         color: var(--muted);
     }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid var(--border);
+        margin: 2rem 0;
+    }
+    th,
+    td {
+        border: 1px solid var(--border);
+        padding: 0.5rem;
+    }
+    th {
+        background-color: var(--card-foreground);
+    }
+    td {
+        background-color: var(--card);
+    }
 }
