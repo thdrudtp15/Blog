@@ -7,7 +7,7 @@ MDX 기반 서버리스 아키텍처로 구현하였습니다.
 
 ## 🔗 배포 링크
 
--   [https://your-blog.vercel.app](https://your-blog.vercel.app)
+-   [링크](https://blog-eight-rho-53.vercel.app/)
 
 ---
 
