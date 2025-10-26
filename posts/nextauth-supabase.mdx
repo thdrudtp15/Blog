@@ -176,7 +176,9 @@ export const authOptions = {
     // 쿠키 설정
     cookies: {
         sessionToken: {
-            name: `${process.env.NODE_ENV === 'production' ? '__Host-' : ''}next-auth.session-token`,
+            name: `${
+                process.env.NODE_ENV === 'production' ? '__Host-' : ''
+            }next-auth.session-token`,
             options: {
                 httpOnly: true,
                 sameSite: 'lax',

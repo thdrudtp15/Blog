@@ -49,7 +49,10 @@ type Props = {
     params: { slug: string };
 };
 
-export const generateMetadata = ({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> => {
+export const generateMetadata = (
+    { params }: Props,
+    parent: ResolvingMetadata
+): Promise<Metadata> => {
     const post = getData();
     const parentMetadata = await parent;
 
@@ -85,7 +88,11 @@ export const getPost = cache(async (slug: string) => {
 // app/blog/[slug]/page.tsx
 import { getPost } from '@/app/lib/data';
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({
+    params,
+}: {
+    params: { slug: string };
+}) {
     const post = await getPost(params.slug);
     return {
         title: post.title,
