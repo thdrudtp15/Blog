@@ -1,5 +1,3 @@
-import { StaticImageData } from 'next/image';
-
 export type Post = {
     idx?: number;
     slug: string;
@@ -7,6 +5,6 @@ export type Post = {
     description: string;
     date: string;
     tags: string[];
-    cover: StaticImageData;
+    cover: string;
     content: string;
 };
