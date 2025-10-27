@@ -23,7 +23,9 @@ const PostList = ({ tag, search }: { tag: string; search: string }) => {
                 <ul className={styles.tags}>
                     <li>
                         <Link
-                            className={`${styles.tag_item} ${(!tag || tag === '') && styles.selected}`}
+                            className={`${styles.tag_item} ${
+                                (!tag || tag === '') && styles.selected
+                            }`}
                             href={'/'}
                             scroll={false}
                         >
@@ -33,7 +35,9 @@ const PostList = ({ tag, search }: { tag: string; search: string }) => {
                     {tags.map((item: string) => (
                         <li key={item}>
                             <Link
-                                className={`${styles.tag_item} ${tag === item && styles.selected}`}
+                                className={`${styles.tag_item} ${
+                                    tag === item && styles.selected
+                                }`}
                                 href={`/?tag=${item}`}
                                 scroll={false}
                             >
@@ -52,14 +56,21 @@ const PostList = ({ tag, search }: { tag: string; search: string }) => {
                                 <PostItem.Cover cover={post.cover} />
                                 <PostItem.Date date={post.date} />
                                 <PostItem.Title title={post.title} />
-                                <PostItem.Description description={post.description} />
+                                <PostItem.Description
+                                    description={post.description}
+                                />
                                 <PostItem.Tags tags={post.tags} />
                             </PostItem>
                         </React.Fragment>
                     ))}
                 </div>
             )}
-            {!posts || (posts.length === 0 && <div className={styles.no_content}>게시글이 존재하지 않습니다.</div>)}
+            {!posts ||
+                (posts.length === 0 && (
+                    <div className={styles.no_content}>
+                        게시글이 존재하지 않습니다.
+                    </div>
+                ))}
         </Container>
     );
 };
