@@ -13,6 +13,8 @@
     gap: 0.875rem;
     padding: 1rem;
     font-size: 0.875rem;
+    max-height: 30rem;
+    overflow-y: auto;
 }
 
 .heading1 {
@@ -23,6 +25,15 @@
 }
 .heading3 {
     padding-left: 2rem;
+}
+
+.heading1,
+.heading2,
+.heading3 {
+    &:hover {
+        font-weight: bold;
+        text-decoration: underline;
+    }
 }
 
 .loading {
