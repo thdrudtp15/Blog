@@ -25,7 +25,9 @@ const RecentPost = () => {
                         <PostItem.Cover cover={posts[0].cover} />
                         <PostItem.Date date={posts[0].date} />
                         <PostItem.Title title={posts[0].title} />
-                        <PostItem.Description description={posts[0].description} />
+                        <PostItem.Description
+                            description={posts[0].description}
+                        />
                         <PostItem.Tags tags={posts[0].tags} />
                     </PostItem>
                 </div>

@@ -1,0 +1,20 @@
+@use '../app/mixins' as mixins;
+
+.projects {
+    width: 100%;
+    padding: 2rem 0;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--foreground);
+    line-height: 1.2;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}

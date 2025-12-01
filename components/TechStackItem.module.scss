@@ -1,0 +1,213 @@
+@use '../app/mixins' as mixins;
+
+.item {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 0.375rem;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+    border: 1px solid transparent;
+}
+
+// React - #61DAFB
+.react {
+    background-color: #61dafb;
+    color: #000;
+    border-color: transparent;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// JavaScript - #F7DF1E
+.javascript {
+    background-color: #f7df1e;
+    color: #000;
+    border-color: transparent;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// TypeScript - #3178C6
+.typescript {
+    background-color: #3178c6;
+    color: #fff;
+    border-color: transparent;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// Next.js - 블랙/화이트
+.nextjs {
+    background-color: #000;
+    color: #fff;
+    border-color: transparent;
+
+    @media (prefers-color-scheme: dark) {
+        background-color: #fff;
+        color: #000;
+    }
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// Node.js - #339933
+.nodejs {
+    background-color: #339933;
+    color: #fff;
+    border-color: transparent;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// Socket.io - #010101
+.socketio {
+    background-color: #010101;
+    color: #fff;
+    border-color: transparent;
+
+    @media (prefers-color-scheme: dark) {
+        background-color: #fff;
+        color: #000;
+    }
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// Tailwind CSS - #06B6D4
+.tailwind {
+    background-color: #06b6d4;
+    color: #fff;
+    border-color: transparent;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// Vue.js - #4FC08D
+.vue,
+.vuejs {
+    background-color: #4fc08d;
+    color: #fff;
+    border-color: transparent;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// Angular - #DD0031
+.angular {
+    background-color: #dd0031;
+    color: #fff;
+    border-color: transparent;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// Python - #3776AB
+.python {
+    background-color: #3776ab;
+    color: #fff;
+    border-color: transparent;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// HTML - #E34F26
+.html {
+    background-color: #e34f26;
+    color: #fff;
+    border-color: transparent;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// CSS - #1572B6
+.css {
+    background-color: #1572b6;
+    color: #fff;
+    border-color: transparent;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// SCSS/SASS - #CC6699
+.scss,
+.sass {
+    background-color: #cc6699;
+    color: #fff;
+    border-color: transparent;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// MongoDB - #47A248
+.mongodb {
+    background-color: #47a248;
+    color: #fff;
+    border-color: transparent;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// PostgreSQL - #336791
+.postgresql {
+    background-color: #336791;
+    color: #fff;
+    border-color: transparent;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// MySQL - #4479A1
+.mysql {
+    background-color: #4479a1;
+    color: #fff;
+    border-color: transparent;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// 기본 스타일 (매칭되는 기술이 없을 때)
+.default {
+    background: var(--card-foreground);
+    color: var(--foreground);
+    border-color: var(--border);
+
+    &:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+    }
+}

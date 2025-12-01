@@ -9,7 +9,6 @@
         "lint": "eslint"
     },
     "dependencies": {
-        "@supabase/supabase-js": "^2.75.1",
         "gray-matter": "^4.0.3",
         "highlight.js": "^11.11.1",
         "next": "15.5.0",
