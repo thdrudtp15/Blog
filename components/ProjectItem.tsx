@@ -62,7 +62,7 @@ const ProjectItem = ({
 
     if (id) {
         return (
-            <Link href={`/about/${id}`} className={styles.link}>
+            <Link href={`/about/${id}`} className={styles.link} scroll={false}>
                 {content}
             </Link>
         );

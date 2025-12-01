@@ -31,7 +31,7 @@ const Others = () => {
                 </div>
 
                 {/* 자격증 */}
-                <div className={styles.section}>
+                {/* <div className={styles.section}>
                     <h3 className={styles.section_title}>자격증</h3>
                     <div className={styles.content}>
                         <div className={styles.item}>
@@ -50,7 +50,7 @@ const Others = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
                 {/* 국비지원 프로젝트 */}
                 <div className={styles.section}>
