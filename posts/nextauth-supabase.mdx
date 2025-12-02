@@ -3,7 +3,7 @@ title: 'NextAuth + Supabase로 소셜 로그인 구현하기'
 description: 'NextAuth와 Supabase를 이용한 소셜 로그인 구현 가이드입니다.'
 date: '2025-09-18'
 tags: ['NextAuth', 'Supabase']
-cover: /covers/nextauth-supabase.png
+cover: /post/covers/nextauth-supabase.png
 ---
 
 # NextAuth + Supabase 소셜 로그인 구현 가이드
@@ -46,9 +46,9 @@ SUPABASE_SERVICE_ROLE_KEY=********
 ```
 
 -   Supabase 프로젝트 URL 확인 방법:
-    ![supabase-url](/images/nextauth-supabase/url.png)
+    ![supabase-url](/post/images/nextauth-supabase/url.png)
 -   Secret Key 확인 방법:
-    ![supabase-secret-key](/images/nextauth-supabase/secret.png)
+    ![supabase-secret-key](/post/images/nextauth-supabase/secret.png)
 
 ## 5. Supabase 테이블 스키마 및 RLS 설정
 
@@ -149,7 +149,7 @@ GRANT ALL ON TABLE next_auth.verification_tokens TO service_role;
 </details>
 
 -   Exposed schemas에 `next_auth` 추가  
-    ![exposed-schema](/images/nextauth-supabase/exposed.png)
+    ![exposed-schema](/post/images/nextauth-supabase/exposed.png)
 
 ## 6. NextAuth 세션에서 Supabase JWT 생성
 

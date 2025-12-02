@@ -1,9 +1,9 @@
-export type ProjectItemProps = {
-    id?: string;
-    image: string;
+export type ProjectItem = {
     title: string;
+    thumbnail: string;
     description: string;
-    period: string;
-    techStack: string[];
-    link?: string;
+    period: { start: string; end: string };
+    tech: string[];
 };
+
+export type ProjectDetail = ProjectItem & { content: string };

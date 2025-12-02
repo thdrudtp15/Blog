@@ -1,50 +1,30 @@
-'use client';
+import { notFound } from 'next/navigation';
+import { getProjects } from '@/utils/getProjects';
+import ProjectDetailModal from '@/components/ProjectDetailModal';
+import { serialize } from 'next-mdx-remote/serialize';
+import rehypeHighlight from 'rehype-highlight';
+import rehypeSlug from 'rehype-slug';
+import rehypeStringify from 'rehype-stringify';
+import remarkGfm from 'remark-gfm';
 
-import { useRouter } from 'next/navigation';
-import { IoClose } from 'react-icons/io5';
-import styles from './modal.module.scss';
-import { useEffect } from 'react';
+const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
+    const { slug } = await params;
 
-const Page = () => {
-    const router = useRouter();
+    const project = getProjects({ title: slug });
 
-    useEffect(() => {
-        document.body.style.overflow = 'hidden';
-        return () => {
-            document.body.style.overflow = 'auto';
-        };
-    }, []);
+    if (!project) {
+        notFound();
+    }
 
-    const backgroundClick = (e: React.MouseEvent<HTMLDivElement>) => {
-        e.stopPropagation();
-        router.back();
-    };
+    const content = await serialize(project.content, {
+        mdxOptions: {
+            rehypePlugins: [rehypeHighlight, rehypeSlug, rehypeStringify],
+            remarkPlugins: [remarkGfm],
+        },
+        scope: {},
+    });
 
-    const contentClick = (e: React.MouseEvent<HTMLDivElement>) => {
-        e.stopPropagation();
-    };
-
-    return (
-        <div className={styles.modal} onClick={backgroundClick}>
-            <div className={styles.content_box} onClick={contentClick}>
-                <div className={styles.overview}>
-                    <div className={styles.overview_image}>이미지</div>
-                    <p className={styles.overview_title}>미라클 플레이</p>
-                    <p className={styles.overview_period}>
-                        2025.01.01 - 2025.01.01
-                    </p>
-                </div>
-                <div className={styles.detail}>
-                    <button
-                        className={styles.close}
-                        onClick={() => router.back()}
-                    >
-                        <IoClose size={32} />
-                    </button>
-                </div>
-            </div>
-        </div>
-    );
+    return <ProjectDetailModal project={project} content={content} />;
 };
 
 export default Page;

@@ -3,7 +3,7 @@ import styles from './AboutMe.module.scss';
 const AboutMe = () => {
     return (
         <div className={styles.aboutMe}>
-            <h2 className={styles.title}>저는 이런 사람이에요</h2>
+            <h2 className={styles.title}>소개</h2>
             <div className={styles.content}>
                 <div className={styles.item}>
                     <div className={styles.item_icon}>💡</div>
