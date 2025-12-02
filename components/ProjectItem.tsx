@@ -6,13 +6,9 @@ import React from 'react';
 import TechStackItem from '@/components/TechStackItem';
 import type { ProjectItem } from '@/types/projects';
 
-const ProjectItem = ({
-    title,
-    thumbnail,
-    description,
-    period,
-    tech,
-}: ProjectItem) => {
+const ProjectItem = ({ project }: { project: ProjectItem }) => {
+    const { title, thumbnail, description, period, tech, type } = project;
+
     const blurDataURL =
         'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzAwIiBoZWlnaHQ9IjQ3NSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNzAwIiBoZWlnaHQ9IjQ3NSIgZmlsbD0iI2YwZjBmMCIvPjwvc3ZnPg==';
 
@@ -32,7 +28,18 @@ const ProjectItem = ({
                 </div>
                 <div className={styles.content}>
                     <div className={styles.header}>
-                        <h3 className={styles.title}>{title}</h3>
+                        <div className={styles.title_container}>
+                            <h3 className={styles.title}>{title}</h3>
+                            <span
+                                className={`${styles.type} ${
+                                    type === '개인 프로젝트'
+                                        ? styles.type_personal
+                                        : styles.type_company
+                                }`}
+                            >
+                                {type}
+                            </span>
+                        </div>
                         <span className={styles.period}>
                             {period.start} - {period.end}
                         </span>

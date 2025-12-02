@@ -3,10 +3,12 @@
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { IoClose } from 'react-icons/io5';
+import { HiExternalLink } from 'react-icons/hi';
 import styles from './ProjectDetailModal.module.scss';
 import { useEffect } from 'react';
 import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import Mdx from './Mdx';
+import TechStackItem from './TechStackItem';
 
 import type { ProjectDetail } from '@/types/projects';
 
@@ -20,7 +22,7 @@ const ProjectDetailModal = ({
         Record<string, unknown>
     >;
 }) => {
-    const { title, thumbnail, period } = project;
+    const { title, thumbnail, period, description, tech, url } = project;
     const router = useRouter();
 
     useEffect(() => {
@@ -42,20 +44,6 @@ const ProjectDetailModal = ({
     return (
         <div className={styles.modal} onClick={backgroundClick}>
             <div className={styles.content_box} onClick={contentClick}>
-                <div className={styles.overview}>
-                    <div className={styles.overview_image}>
-                        <Image
-                            src={thumbnail}
-                            alt={title}
-                            fill
-                            className={styles.image}
-                        />
-                    </div>
-                    <p className={styles.overview_title}> {title} </p>
-                    <p className={styles.overview_period}>
-                        {period.start} - {period.end}
-                    </p>
-                </div>
                 <div className={styles.detail}>
                     <button
                         className={styles.close}
@@ -63,6 +51,34 @@ const ProjectDetailModal = ({
                     >
                         <IoClose size={32} />
                     </button>
+                    <div className={styles.overview_banner}>
+                        <Image src={thumbnail} alt={title} fill />
+                    </div>
+                    <div className={styles.overview_content}>
+                        <div className={styles.overview_title}>{title}</div>
+                        <p className={styles.overview_description}>
+                            {description}
+                        </p>
+                        <div className={styles.overview_period}>
+                            개발 기간: {period.start} - {period.end}
+                        </div>
+                        <div className={styles.overview_tech}>
+                            {tech.map((techItem) => (
+                                <TechStackItem key={techItem} tech={techItem} />
+                            ))}
+                        </div>
+                        {url && (
+                            <a
+                                href={url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.overview_link}
+                            >
+                                <HiExternalLink size={18} />
+                                <span>프로젝트 보기</span>
+                            </a>
+                        )}
+                    </div>
                     <Mdx source={content} />
                 </div>
             </div>

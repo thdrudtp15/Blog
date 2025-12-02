@@ -50,9 +50,20 @@
 
 .company_info {
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
+    align-items: center;
     flex: 1;
+}
+
+.company_logo {
+    position: relative;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    border-radius: 0.75rem;
+    padding: 0.5rem;
+    img {
+        object-fit: cover;
+    }
 }
 
 .company_name {

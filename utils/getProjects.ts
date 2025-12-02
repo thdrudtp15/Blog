@@ -19,9 +19,13 @@ const loadProjects = (): ProjectItem[] => {
             description: data.description,
             period: data.period,
             tech: data.tech,
+            type: data.type,
             content: content,
+            url: data.url,
         };
     });
+
+    console.log(1322122122112332);
 
     return projects;
 };

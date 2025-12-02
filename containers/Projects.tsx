@@ -10,13 +10,7 @@ const Projects = () => {
             <div className={styles.grid}>
                 {projects.map((project, idx) => (
                     <React.Fragment key={idx}>
-                        <ProjectItem
-                            title={project.title}
-                            thumbnail={project.thumbnail}
-                            description={project.description}
-                            period={project.period}
-                            tech={project.tech}
-                        />
+                        <ProjectItem project={project} />
                     </React.Fragment>
                 ))}
             </div>

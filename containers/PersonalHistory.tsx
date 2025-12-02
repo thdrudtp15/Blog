@@ -1,4 +1,6 @@
 import styles from './PersonalHistory.module.scss';
+import nisoftLogo from '@/public/company/nisoft.webp';
+import Image from 'next/image';
 
 const PersonalHistory = () => {
     return (
@@ -7,8 +9,23 @@ const PersonalHistory = () => {
             <div className={styles.content}>
                 <div className={styles.header}>
                     <div className={styles.company_info}>
-                        <h3 className={styles.company_name}>엔아이소프트</h3>
-                        <span className={styles.position}>프론트엔드 개발</span>
+                        <div className={styles.company_logo}>
+                            <Image
+                                src={nisoftLogo}
+                                alt="엔아이소프트"
+                                priority
+                                width={80}
+                                height={80}
+                            />
+                        </div>
+                        <div>
+                            <h3 className={styles.company_name}>
+                                엔아이소프트
+                            </h3>
+                            <span className={styles.position}>
+                                프론트엔드 개발
+                            </span>
+                        </div>
                     </div>
                     <span className={styles.period}>2023.10 - 2025.07</span>
                 </div>
