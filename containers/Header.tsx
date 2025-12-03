@@ -6,9 +6,18 @@ const Header = () => {
     return (
         <header className={styles.header}>
             <div className={styles.content}>
-                <Link className={styles.brand} href="/" aria-label="홈">
-                    <strong className={styles.name}>De95he</strong>
-                </Link>
+                <div className={styles.brand_container}>
+                    <Link className={styles.brand} href="/" aria-label="홈">
+                        <strong className={styles.name}>HOME</strong>
+                    </Link>
+                    <Link
+                        className={styles.brand}
+                        href="/about"
+                        aria-label="소개"
+                    >
+                        <strong className={styles.name}>ABOUT</strong>
+                    </Link>
+                </div>
                 <ThemeToggle />
             </div>
         </header>

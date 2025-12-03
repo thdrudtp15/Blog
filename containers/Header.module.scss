@@ -1,8 +1,14 @@
 @use '../app/mixins' as mixins;
 
 .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
     border-bottom: 1px solid var(--border);
     background: var(--background);
+    backdrop-filter: blur(10px);
 }
 
 .brand {
@@ -25,4 +31,9 @@
     margin: 0 auto;
     @include mixins.content-width();
     @include mixins.flex(center, space-between, 0rem);
+}
+
+.brand_container {
+    @include mixins.flex(center, space-between, 0rem);
+    gap: 1rem;
 }

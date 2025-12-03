@@ -1,0 +1,140 @@
+---
+ title: '공간 하우징'
+ description: 'Next.js를 이용한 정적 사이트'
+ period: {start: '2025-09', end: '2025-10'}
+ tech: ['Next.js', 'TypeScript', 'framer-motion', 'node-mailer', 'cloudinary', 'supabase', 'NextAuth']
+ thumbnail : /projects/thumbnail/gonggan.jpg
+ type : '개인 프로젝트'
+ url : 'https://gongganhousing.vercel.app/'
+ github : 'https://github.com/thdrudtp15/GongganHousing' 
+---
+
+# 🚩 프로젝트 개요
+
+Next.js 15 App Router 기반 건축 회사 데모 웹사이트
+
+-   시공 사례 관리 시스템 **(CRUD)**
+-   상담 문의 폼 및 **이메일 발송**
+-   Google OAuth 기반 **관리자 인증**
+-   **이미지 최적화** 및 **데이터 캐싱**
+
+### 이미지
+
+<ImageSlide
+    images={[
+        '/projects/content/gonggan/page_intro.png',
+        '/projects/content/gonggan/page_portfolio.png',
+        '/projects/content/gonggan/page_detail.png',
+        '/projects/content/gonggan/page_mail.png',
+        '/projects/content/gonggan/page_create.png',
+    ]}
+/>
+
+---
+
+# 📝 주요 기능
+
+**시공 사례 관리 시스템 (CRUD)**
+
+-   **카테고리별 분류** (실내건축, 옥외광고물, 금속창호)
+-   검색, 필터링, 페이지네이션
+-   Zod 스키마를 통한 **입력 데이터 검증**
+
+**관리자 인증 시스템**
+
+-   NextAuth.js 기반 **Google OAuth 인증**
+-   **허용된 이메일**만 **로그인** 가능하도록 **제한**
+-   Supabase RLS와 이중 보안 구축
+
+**상담 문의 시스템**
+
+-   첨부파일 지원 (최대 5개, 총 10MB)
+-   Cloudflare Turnstile **봇 차단**
+-   IP 기반 **Rate Limiting** (10분 내 3회 제한)
+-   **Nodemailer**를 통한 SMTP 이메일 발송
+
+---
+
+### 기술적 해결
+
+✅ 클라이언트 측 **이미지 압축**으로 전송 크기 및 **비용 절감**
+
+-   문제: 원본 이미지 업로드 시 **Cloudinary 저장 용량 빠르게 증가**
+-   해결: browser-image-compression 라이브러리로 **클라이언트 측 사전 압축** (최대 0.7MB, JPEG 제한)
+-   성과: 전송 이미지 크기 **60% 감소** -> Cloudinary 저장 **비용 절감**
+
+        <ImageSlide
+        images={[
+            '/projects/content/gonggan/optimizing1.png',
+            '/projects/content/gonggan/optimizing3.png',
+            '/projects/content/gonggan/optimizing4.png',
+
+        ]}
+
+    />
+
+✅ 2단계 보안 시스템으로 **스팸 방지**
+
+-   문제: 봇 공격 및 무분별한 문의 제출로 인한 **서버 부하 우려** 됨
+-   해결: **Cloudflare Turnstile** 봇 차단 + IP 기반으로 한 **Rate Limiting** (10분 내 3회 제한)
+-   성과: **봇 공격 차단**, **서버 부하 감소**
+
+✅ **NextAuth** 세션 기반 인증으로 코드 간결성 향상
+
+-   문제: Supabase Auth 사용 시 모든 라우트가 다이나믹으로 변환, **반복 코드의 증가**
+-   해결: NextAuth 세션 기반 인증 + Supabase Adapter로 세션 저장
+-   성과: 서버/클라이언트 **통일된 인증 관리**, 정적 라우트 최적화
+
+✅ **React cache**로 메타데이터 **중복 요청 제거**
+
+-   문제: 상세 페이지에서 메타데이터 생성과 렌더링을 위해 동일 데이터 2번 요청
+-   해결: React cache 함수로 동일 요청을 1회로 통합
+-   성과: 데이터베이스 **요청 횟수 감소**, **페이지 로딩 속도 개선**
+
+✅ **Next.js 캐싱**으로 성능 개선
+
+-   문제: 시공 사례 조회 시 매번 DB 직접 요청으로 서버 부하 및 느린 응답
+-   해결: unstable_cache로 포트폴리오 목록 및 상세정보 캐싱
+-   성과: 로딩 속도 **25% 개선**(454ms -> 334ms), 데이터베이스 부하 감소
+
+#### 캐싱 이전
+
+<MdxImage
+    src="/projects/content/gonggan/gonggan_cache-before.png"
+    height={300}
+    alt="캐싱 이전"
+/>
+
+#### 캐싱 작업 이후
+
+<MdxImage
+    src="/projects/content/gonggan/gonggan_cache-after.png"
+    height={300}
+    alt="캐싱 이전"
+/>
+
+## 기술 스택 및 도구
+
+-   **TypeScript**: 정적 타입을 통한 타입 안정성 확보 및 유지보수성 향상
+
+-   **Next.js 15 (App Router)**: 서버 컴포넌트·서버 액션 기반의 풀스택 웹 애플리케이션 구현
+
+-   **TailwindCSS**: 유틸리티 클래스 기반의 빠른 스타일링 및 반응형 디자인
+
+-   **Supabase (PostgreSQL + RLS)**: 포트폴리오·문의 데이터 저장 및 Row Level Security를 통한 권한 제어
+
+-   **Cloudinary**: 시공 사례 이미지 저장 및 관리, 클라우드 이미지 호스팅, 무료
+
+-   **NextAuth**: 관리자 전용 인증 및 세션 기반 로그인 관리
+
+-   **Nodemailer**: SMTP 기반 상담 문의 이메일 발송 처리
+
+-   **Cloudflare Turnstile**: 봇 차단 및 폼 제출 보안 검증
+
+-   **React Kakao Maps SDK**: 회사 위치 지도를 위한 카카오맵 연동
+
+-   **Framer Motion**: 메인/서비스 섹션 애니메이션 및 스크롤 인터랙션 구현
+
+-   **Embla Carousel**: 히어로/포트폴리오 슬라이더 구현
+
+-   **Zod**: 포트폴리오/문의 폼 데이터 검증 및 서버 액션 입력 유효성 검사

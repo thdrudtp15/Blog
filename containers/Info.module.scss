@@ -1,0 +1,86 @@
+@use '../app/mixins' as mixins;
+
+.info {
+    width: 100%;
+    padding: 2rem 0;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--foreground);
+    line-height: 1.2;
+}
+
+.profile {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+
+.profile_image {
+    position: relative;
+    width: 200px;
+    min-width: 200px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 1rem;
+    // background: var(--card-foreground);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 768px) {
+        width: 250px;
+        min-width: 250px;
+    }
+}
+
+.profile_text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 1;
+    width: 100%;
+}
+
+.profile_text_item {
+    padding: 1.25rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        border-color: var(--accent);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transform: translateY(-2px);
+    }
+}
+
+.profile_text_item_name {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.profile_text_item_content {
+    font-size: 0.875rem;
+    color: var(--foreground);
+    word-break: break-all;
+    display: block;
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+        color: var(--accent);
+    }
+}

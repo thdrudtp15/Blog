@@ -35,17 +35,17 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --background: #0b0c10;
-        --foreground: #e5e7eb;
-        --muted: #9ca3af;
-        --card: #1b1e26;
-        --card-foreground: #111827;
-        --border: #4b5563;
+        --background: #09090b;
+        --foreground: #fafafa;
+        --muted: #a1a1aa;
+        --card: #18181b;
+        --card-foreground: #09090b;
+        --border: #27272a;
         --accent: #8b5cf6;
         --accent-foreground: #ffffff;
         --ring: #a78bfa;
-        --blockquote-bg: #1f212a;
-        --blockquote-border: #4b5563;
+        --blockquote-bg: #18181b;
+        --blockquote-border: #27272a;
     }
 }
 
@@ -65,18 +65,19 @@
 }
 
 .dark {
-    --background: #0b0c10;
-    --foreground: #e5e7eb;
-    --muted: #9ca3af;
-    --card: #1b1e26;
-    --card-foreground: #111827;
-    --border: #4b5563;
+    --background: #09090b;
+    --foreground: #fafafa;
+    --muted: #a1a1aa;
+    --card: #18181b;
+    --card-foreground: #09090b;
+    --border: #27272a;
     --accent: #8b5cf6;
     --accent-foreground: #ffffff;
     --ring: #a78bfa;
-    --blockquote-bg: #1f212a;
-    --blockquote-border: #4b5563;
+    --blockquote-bg: #18181b;
+    --blockquote-border: #27272a;
 }
+
 html,
 body {
     max-width: 100vw;
@@ -93,12 +94,15 @@ body {
     font-family: 'Pretendard Variable', Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    transition: background-color 0.3s ease, color 0.3s ease,
+        border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 a {
@@ -110,4 +114,25 @@ a {
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 1rem;
+    margin-top: 4rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--muted) transparent;
+}
+// 스크롤바 디자인 (Webkit 브라우저)
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--muted);
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: var(--muted);
 }
