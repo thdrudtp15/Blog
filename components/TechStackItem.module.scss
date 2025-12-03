@@ -200,6 +200,138 @@
     }
 }
 
+// Redux Toolkit - #764ABC
+.redux-toolkit {
+    background-color: #764abc;
+    color: #fff;
+    border-color: transparent;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// TanStack Query (React Query) - #FF4154
+.tanstack-query {
+    background-color: #ff4154;
+    color: #fff;
+    border-color: transparent;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// Thirdweb - #2F80ED
+.thirdweb {
+    background-color: #2f80ed;
+    color: #fff;
+    border-color: transparent;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// Axios - #5A29E4
+.axios {
+    background-color: #5a29e4;
+    color: #fff;
+    border-color: transparent;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// i18next - #26A69A
+.i18next {
+    background-color: #26a69a;
+    color: #fff;
+    border-color: transparent;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// OpenAI - #10A37F
+.openai {
+    background-color: #10a37f;
+    color: #fff;
+    border-color: transparent;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// Framer Motion - #0055FF
+.framer-motion {
+    background-color: #0055ff;
+    color: #fff;
+    border-color: transparent;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// Nodemailer - #009c4a
+.node-mailer {
+    background-color: #009c4a;
+    color: #fff;
+    border-color: transparent;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// Cloudinary - #3448c5
+.cloudinary {
+    background-color: #3448c5;
+    color: #fff;
+    border-color: transparent;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// Supabase - #3ECF8E
+.supabase {
+    background-color: #3ecf8e;
+    color: #000;
+    border-color: transparent;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// NextAuth - #000000
+.nextauth {
+    background-color: #000000;
+    color: #fff;
+    border-color: transparent;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// Monaco Editor - #1e90ff
+.monaco-editor {
+    background-color: #1e90ff;
+    color: #fff;
+    border-color: transparent;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
 // 기본 스타일 (매칭되는 기술이 없을 때)
 .default {
     background: var(--card-foreground);

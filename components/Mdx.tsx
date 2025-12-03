@@ -7,10 +7,12 @@ import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 import MdxImage from './MdxImage';
 import ImageSlide from './ImageSlide';
+import MdxVideo from './MdxVideo';
 
 const components = {
     MdxImage,
     ImageSlide,
+    MdxVideo,
 };
 
 const Mdx = ({

@@ -1,4 +1,6 @@
 import styles from './Info.module.scss';
+import Image from 'next/image';
+import profile from '@/public/profile/profile.webp';
 
 const Info = () => {
     return (
@@ -8,12 +10,14 @@ const Info = () => {
             </h1>
             <div className={styles.profile}>
                 <div className={styles.profile_image}>
-                    {/* <Image
-                        src="/images/profile.jpg"
+                    <Image
+                        src={profile}
                         alt="profile"
                         width={200}
                         height={200}
-                    /> */}
+                        placeholder="blur"
+                        style={{ objectFit: 'cover' }}
+                    />
                 </div>
                 <div className={styles.profile_text}>
                     <div className={styles.profile_text_item}>

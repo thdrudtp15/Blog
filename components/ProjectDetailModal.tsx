@@ -2,8 +2,10 @@
 
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import Link from 'next/link';
 import { IoClose } from 'react-icons/io5';
 import { HiExternalLink } from 'react-icons/hi';
+import { FaYoutube } from 'react-icons/fa';
 import styles from './ProjectDetailModal.module.scss';
 import { useEffect } from 'react';
 import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
@@ -22,7 +24,7 @@ const ProjectDetailModal = ({
         Record<string, unknown>
     >;
 }) => {
-    const { title, thumbnail, period, description, tech, url } = project;
+    const { title, thumbnail, period, description, tech, url, video } = project;
     const router = useRouter();
 
     useEffect(() => {
@@ -68,15 +70,28 @@ const ProjectDetailModal = ({
                             ))}
                         </div>
                         {url && (
-                            <a
+                            <Link
                                 href={url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={styles.overview_link}
                             >
                                 <HiExternalLink size={18} />
-                                <span>프로젝트 보기</span>
-                            </a>
+                                <span>프로젝트 링크</span>
+                            </Link>
+                        )}
+                        {video && (
+                            <Link
+                                href={video}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={
+                                    styles.overview_link + ' ' + styles.video
+                                }
+                            >
+                                <FaYoutube size={18} />
+                                <span>구동 영상</span>
+                            </Link>
                         )}
                     </div>
                     <Mdx source={content} />

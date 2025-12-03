@@ -1,5 +1,5 @@
-const Page = () => {
-    return <div>상세보기</div>;
-};
+import { redirect } from 'next/navigation';
 
-export default Page;
+export default function Page() {
+    redirect('/about');
+}

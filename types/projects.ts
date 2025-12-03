@@ -6,6 +6,8 @@ export type ProjectItem = {
     tech: string[];
     type: string;
     url: string;
+    video?: string;
+    github?: string;
 };
 
 export type ProjectDetail = ProjectItem & { content: string };

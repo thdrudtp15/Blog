@@ -22,10 +22,12 @@ const loadProjects = (): ProjectItem[] => {
             type: data.type,
             content: content,
             url: data.url,
+            video: data.video,
+            github: data.github,
         };
     });
 
-    console.log(123667);
+    console.log(211123);
 
     return projects;
 };

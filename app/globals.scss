@@ -115,4 +115,24 @@ a {
     margin: 0 auto;
     padding: 1rem;
     margin-top: 4rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--muted) transparent;
+}
+// 스크롤바 디자인 (Webkit 브라우저)
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--muted);
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: var(--muted);
 }

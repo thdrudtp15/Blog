@@ -151,29 +151,6 @@
     padding: 1rem;
     position: relative;
     animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
-
-    // 스크롤바 디자인 (Webkit 브라우저)
-    &::-webkit-scrollbar {
-        width: 8px;
-    }
-
-    &::-webkit-scrollbar-track {
-        background: transparent;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background: var(--border);
-        border-radius: 4px;
-        transition: background 0.2s ease;
-    }
-
-    &::-webkit-scrollbar-thumb:hover {
-        background: var(--muted);
-    }
-
-    // Firefox 스크롤바 디자인
-    scrollbar-width: thin;
-    scrollbar-color: var(--border) transparent;
 }
 .close {
     position: absolute;
@@ -273,7 +250,7 @@
 }
 
 .overview_link {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: 0.5rem;
     font-size: 0.9375rem;
@@ -284,10 +261,14 @@
     transition: color 0.2s ease;
 
     &:hover {
-        color: var(--ring);
+        text-decoration: dashed;
     }
 
     svg {
         flex-shrink: 0;
+    }
+
+    &.video {
+        color: #ff0033;
     }
 }
