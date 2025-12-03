@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist } from 'next/font/google';
 import Footer from '@/containers/Footer';
 import ThemeProviders from '@/providers/ThemeProviders';
 import Header from '@/containers/Header';
@@ -14,11 +14,6 @@ const geistSans = Geist({
     subsets: ['latin'],
 });
 
-const geistMono = Geist_Mono({
-    variable: '--font-geist-mono',
-    subsets: ['latin'],
-});
-
 // 메타데이터 설정
 export const metadata: Metadata = {
     title: 'De95he Dev blog',
@@ -27,20 +22,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
     children,
-    modal,
 }: Readonly<{
     children: React.ReactNode;
-    modal: React.ReactNode;
 }>) {
     return (
         <html lang="en">
-            <body className={`${geistSans.className} ${geistMono.variable}`}>
+            <body className={`${geistSans.className}`}>
                 <ThemeProviders>
                     <Header />
                     <main className="content">{children}</main>
                     <Footer />
                 </ThemeProviders>
-                {modal}
             </body>
         </html>
     );
