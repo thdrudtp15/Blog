@@ -25,7 +25,7 @@ const loadProjects = (): ProjectItem[] => {
         };
     });
 
-    console.log(1322122122112332);
+    console.log(123667);
 
     return projects;
 };
