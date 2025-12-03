@@ -2,9 +2,9 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-import type { ProjectItem } from '@/types/projects';
+import type { ProjectDetail } from '@/types/projects';
 
-const loadProjects = (): ProjectItem[] => {
+const loadProjects = (): ProjectDetail[] => {
     const projectsDirectory = path.join(process.cwd(), 'projects');
     const filenames = fs.readdirSync(projectsDirectory);
 
@@ -26,8 +26,6 @@ const loadProjects = (): ProjectItem[] => {
             github: data.github,
         };
     });
-
-    console.log(211123);
 
     return projects;
 };
