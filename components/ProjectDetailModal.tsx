@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { IoClose } from 'react-icons/io5';
+import { FaGithub } from 'react-icons/fa';
 import { HiExternalLink } from 'react-icons/hi';
 import { FaYoutube } from 'react-icons/fa';
 import styles from './ProjectDetailModal.module.scss';
@@ -24,7 +25,8 @@ const ProjectDetailModal = ({
         Record<string, unknown>
     >;
 }) => {
-    const { title, thumbnail, period, description, tech, url, video } = project;
+    const { title, thumbnail, period, description, tech, url, video, github } =
+        project;
     const router = useRouter();
 
     useEffect(() => {
@@ -91,6 +93,19 @@ const ProjectDetailModal = ({
                             >
                                 <FaYoutube size={18} />
                                 <span>구동 영상</span>
+                            </Link>
+                        )}
+                        {github && (
+                            <Link
+                                href={github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={
+                                    styles.overview_link + ' ' + styles.github
+                                }
+                            >
+                                <FaGithub size={18} />
+                                <span>깃허브</span>
                             </Link>
                         )}
                     </div>
