@@ -1,0 +1,117 @@
+---
+ title: '스냅 UI'
+ description: 'HTML,CSS를 웹에서 확인 할 수 있는 웹 에디터'
+ period: {start: '2025-08', end: '2025-08'}
+ tech: ['React', 'TypeScript', 'Monaco Editor', 'LZ-String', 'DOMPurify']
+ thumbnail : /projects/thumbnail/snap-ui.webp
+ type : '개인 프로젝트'
+ url : 'https://snap-ui-react.vercel.app/?html=tutorial'
+ github : 'https://github.com/thdrudtp15/SnapUI_react'
+---
+
+# 🚩 프로젝트 개요
+
+React 기반 HTML/CSS 웹 에디터
+
+-   **실시간 HTML/CSS 에디터** 및 프리뷰
+-   **하이라이트 모드**로 요소별 스타일 확인
+-   **URL 파라미터 기반 코드 공유** (LZ-String 압축, 서버리스)
+
+### 이미지
+
+<ImageSlide
+    images={[
+        '/projects/content/snap-ui/page_intro1.png',
+        '/projects/content/snap-ui/page_intro2.png',
+
+    ]}
+
+/>
+
+---
+
+# 📝 주요 기능
+
+**실시간 코드 에디터**
+
+-   **Monaco Editor** 기반 HTML/CSS 에디터
+-   프리티어 자동 포매팅
+-   탭 전환으로 HTML/CSS 전환
+
+**실시간 렌더링 및 프리뷰**
+
+-   **DOMPurify**로 XSS 공격 방지
+-   **CSS 스코핑**으로 외부 스타일 오염 방지
+-   커스텀 배경색 선택
+
+**하이라이트 모드**
+
+-   마우스 호버 시 요소별 스타일 강조
+-   클릭한 요소에 적용된 **CSS 규칙을 추출**하여 표시
+-   요소별 CSS 수정 기능
+
+<u>**하이라이트 모드 예시**</u>
+
+<ImageSlide
+    images={[
+        '/projects/content/snap-ui/highlight1.png',
+        '/projects/content/snap-ui/highlight2.png',
+        '/projects/content/snap-ui/highlight3.png',
+    ]}
+/>
+
+**코드 공유 시스템**
+
+-   URL 쿼리 파라미터로 HTML/CSS 상태 저장
+-   **LZString 압축**으로 URL 길이 최적화 작업
+-   URL 주소 복사 기능
+
+---
+
+### 프로세스
+
+<MdxImage
+    src="/projects/content/snap-ui/process.png"
+    height={200}
+    alt="프로세스"
+/>
+
+---
+
+### 기술적 해결
+
+✅ **PostCSS 기반 CSS 스코핑**으로 스타일 격리
+
+-   문제: 에디터에서 작성한 CSS가 애플리케이션 전체에 영향을 미치는 문제
+-   해결: PostCSS AST를 활용하여 모든 CSS 선택자에 **고유 스코프 셀렉터 자동 추가**
+-   성과: 사용자 작성 CSS가 프리뷰 영역에만 적용되도록 **완전한 스타일 격리** 구현
+
+✅ **LZ-String 압축**으로 URL 길이 최적화
+
+-   문제: HTML/CSS 코드가 길어질 경우 **URL이 지나치게 길어짐**
+-   해결: LZString 라이브러리를 사용하여 **URL 쿼리 파라미터 압축 인코딩**
+-   성과: 긴 코드의 경우 URL 길이 **20% 이상 단축**, 코드 공유성 향상
+
+✅ **디바운싱 및 메모이제이션**으로 불필요한 리렌더링 방지
+
+-   문제: 에디터 입력 시마다 **URL 파라미터 업데이트**로 인한 **성능 저하**
+-   해결: **500ms 디바운싱** 적용 및 **React.memo를 활용한 컴포넌트 메모이제이션**
+-   성과: **불필요한 리렌더링 최소화**, 사용자 경험 개선
+
+✅ **Monaco Editor 코드 스플리팅**으로 초기 로딩 속도 개선
+
+-   문제: Monaco Editor의 큰 번들 크기로 인한 **초기 로딩 지연**
+-   해결: Vite 빌드 설정에서 Monaco Editor를 **수동 청크 분리**
+-   성과: **초기 번들 크기 감소**
+
+---
+
+## 기술 스택 및 도구
+
+-   **TypeScript**: 정적 타입을 통한 타입 안정성 확보 및 유지보수성 향상
+-   **Monaco Editor**: VS Code와 동일한 코드 에디터 경험 제공
+-   **LZ-String**: URL 파라미터 압축을 통한 코드 공유 최적화
+-   **DOMPurify**: XSS 공격 방지를 위한 HTML 정제
+-   **react-router**: URL 파라미터 기반 상태 관리
+-   **Prettier**: 코드 자동 포매팅
+-   **react-colorful**: 배경색 커스터마이징을 위한 컬러 피커
