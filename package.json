@@ -11,7 +11,7 @@
     "dependencies": {
         "gray-matter": "^4.0.3",
         "highlight.js": "^11.11.1",
-        "next": "15.5.0",
+        "next": "^15.5.7",
         "next-mdx-remote": "^5.0.0",
         "next-theme": "^0.1.5",
         "react": "19.1.0",
