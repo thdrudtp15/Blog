@@ -27,6 +27,8 @@ const loadProjects = (): ProjectDetail[] => {
         };
     });
 
+    console.log(1234)
+
     return projects;
 };
 
