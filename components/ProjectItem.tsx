@@ -34,6 +34,8 @@ const ProjectItem = ({ project }: { project: ProjectItem }) => {
                                 className={`${styles.type} ${
                                     type === '개인 프로젝트'
                                         ? styles.type_personal
+                                        : type === '팀 프로젝트'
+                                        ? styles.type_team
                                         : styles.type_company
                                 }`}
                             >

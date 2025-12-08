@@ -1,0 +1,10 @@
+---
+ title: '술판다'
+ description: '팀 프로젝트로 진행 된 주류 판매 플랫폼 프로젝트'
+ period: {start: '2025-08', end: '2025-08'}
+ tech: ['React', 'Spring Boot', 'MySql']
+ thumbnail : /projects/thumbnail/snap-ui.webp
+ type : '팀 프로젝트'
+ github : 'https://github.com/weddingYou-Project'
+ video : 'https://www.youtube.com/watch?v=4gY_fWwqzyU'
+---
