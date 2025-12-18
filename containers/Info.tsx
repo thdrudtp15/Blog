@@ -60,12 +60,12 @@ const Info = () => {
                             🌐 Blog
                         </h2>
                         <a
-                            href="https://thdrudtp15.github.io/"
+                            href="https://blog-eight-rho-53.vercel.app/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={styles.profile_text_item_content}
                         >
-                            https://thdrudtp15.github.io/
+                            https://blog-eight-rho-53.vercel.app/
                         </a>
                     </div>
                 </div>
