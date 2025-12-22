@@ -7,4 +7,5 @@ export type Post = {
     tags: string[];
     cover: string;
     content: string;
+    inProgress?: boolean;
 };

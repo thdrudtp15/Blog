@@ -1,0 +1,83 @@
+---
+title: '개인 블로그'
+description: 'Next.js와 MDX를 이용한 개인 블로그'
+period: {start: '2025-08', end: '2025-09'}
+tech: ['Next.js', 'TypeScript', 'MDX', 'gray-matter', 'highlight.js', 'Giscus', 'SCSS']
+thumbnail: /projects/thumbnail/blog.webp
+type: '개인 프로젝트'
+url: 'https://blog-eight-rho-53.vercel.app/'
+github: 'https://github.com/thdrudtp15/Blog'
+---
+
+# 🚩 프로젝트 개요
+
+Next.js 15 App Router 기반 MDX 파일 기반 정적 블로그
+
+-   파일 기반 콘텐츠 관리 시스템
+-   MDX를 활용한 **마크다운 + React 컴포넌트** 작성
+-   **검색 기능** 및 **태그 필터링**
+-   **다크 모드** 지원 및 **반응형 디자인**
+
+---
+
+# 📝 주요 기능
+
+**파일 기반 콘텐츠 관리**
+
+-   **MDX 파일**로 게시글 작성 및 관리
+-   gray-matter를 통한 **프론트매터 파싱**
+-   파일 추가만으로 **자동 반영**
+
+**검색 및 필터링**
+
+-   제목/설명/태그 기반 **통합 검색**
+-   태그별 게시글 **필터링**
+-   날짜순 **자동 정렬**
+
+**게시글 기능**
+
+-   코드 하이라이팅 (highlight.js)
+-   자동 목차(TOC) 생성
+-   GitHub Discussions 기반 댓글 (Giscus)
+-   반응형 이미지 최적화
+
+---
+
+### 기술적 해결
+
+✅ **MDX 파일 기반 콘텐츠 관리**로 개발 효율성 향상
+
+-   **문제**: 데이터베이스나 CMS 없이 **간단하게 콘텐츠 관리** 필요
+-   **해결**: MDX 파일 기반으로 **마크다운 + React 컴포넌트** 혼합 사용
+-   **성과**: 파일 추가만으로 게시글 자동 생성, **Git 기반 버전 관리** 가능
+
+✅ **next-mdx-remote**로 서버 컴포넌트 호환성 확보
+
+-   **문제**: Next.js 15 App Router에서 MDX 파일 직접 import 불가
+-   **해결**: next-mdx-remote로 **런타임 MDX 파싱** 및 **커스텀 컴포넌트** 지원
+-   **성과**: 서버 컴포넌트 환경에서도 **MDX 활용** 가능, **커스텀 컴포넌트** 삽입 가능
+
+✅ **클라이언트 사이드 검색**으로 서버 부하 감소
+
+-   **문제**: 검색 기능 구현 시 **서버 API** 필요
+-   **해결**: 빌드 타임에 모든 게시글 메타데이터 수집, **클라이언트에서 필터링**
+-   **성과**: 서버 부하 없이 **즉각적인 검색** 제공, **정적 사이트** 유지
+
+## 기술 스택 및 도구
+
+-   **TypeScript**: 정적 타입을 통한 타입 안정성 확보 및 유지보수성 향상
+
+-   **Next.js 15 (App Router)**: 서버 컴포넌트 기반의 정적 사이트 생성
+
+-   **MDX**: 마크다운과 React 컴포넌트를 혼합하여 사용할 수 있는 포맷
+
+-   **gray-matter**: MDX 파일의 프론트매터 파싱 및 콘텐츠 분리
+
+-   **next-mdx-remote**: 서버 컴포넌트 환경에서 MDX 렌더링
+
+-   **highlight.js**: 코드 블록 문법 하이라이팅
+
+-   **Giscus**: GitHub Discussions 기반 댓글 시스템
+
+-   **rehype/remark 플러그인**: MDX 처리 및 변환
+

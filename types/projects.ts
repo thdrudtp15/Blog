@@ -8,6 +8,7 @@ export type ProjectItem = {
     url: string;
     video?: string;
     github?: string;
+    inProgress?: boolean;
 };
 
 export type ProjectDetail = ProjectItem & { content: string };

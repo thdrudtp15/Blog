@@ -24,6 +24,7 @@ const loadProjects = (): ProjectDetail[] => {
             url: data.url,
             video: data.video,
             github: data.github,
+            inProgress: data.inProgress,
         };
     });
 

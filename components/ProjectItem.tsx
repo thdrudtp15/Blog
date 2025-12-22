@@ -7,7 +7,8 @@ import TechStackItem from '@/components/TechStackItem';
 import type { ProjectItem } from '@/types/projects';
 
 const ProjectItem = ({ project }: { project: ProjectItem }) => {
-    const { title, thumbnail, description, period, tech, type } = project;
+    const { title, thumbnail, description, period, tech, type, inProgress } =
+        project;
 
     const blurDataURL =
         'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzAwIiBoZWlnaHQ9IjQ3NSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNzAwIiBoZWlnaHQ9IjQ3NSIgZmlsbD0iI2YwZjBmMCIvPjwvc3ZnPg==';
@@ -41,6 +42,11 @@ const ProjectItem = ({ project }: { project: ProjectItem }) => {
                             >
                                 {type}
                             </span>
+                            {inProgress && (
+                                <span className={styles.inProgress}>
+                                    진행중
+                                </span>
+                            )}
                         </div>
                         <span className={styles.period}>
                             {period.start} - {period.end}
